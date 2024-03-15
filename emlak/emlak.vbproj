@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2C8D848-49F5-469F-BBB5-BA9F20A22D88}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>emlak.My.MyApplication</StartupObject>
+    <RootNamespace>emlak</RootNamespace>
+    <AssemblyName>emlak</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>emlak.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>emlak.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlSatKirala.designer.vb">
+      <DependentUpon>AlSatKirala.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AlSatKirala.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArsaEkle.designer.vb">
+      <DependentUpon>ArsaEkle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ArsaEkle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArsaListesi.Designer.vb">
+      <DependentUpon>ArsaListesi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ArsaListesi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmlakciEkle.designer.vb">
+      <DependentUpon>EmlakciEkle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EmlakciEkle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmlakciListesi.Designer.vb">
+      <DependentUpon>EmlakciListesi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EmlakciListesi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="isyeriEkle.designer.vb">
+      <DependentUpon>isyeriEkle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="isyeriEkle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="isyeriListesi.Designer.vb">
+      <DependentUpon>isyeriListesi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="isyeriListesi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KonutEkle.designer.vb">
+      <DependentUpon>KonutEkle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KonutEkle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KonutListesi.Designer.vb">
+      <DependentUpon>KonutListesi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KonutListesi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusteriEkle.designer.vb">
+      <DependentUpon>MusteriEkle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MusteriEkle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusteriListesi.Designer.vb">
+      <DependentUpon>MusteriListesi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MusteriListesi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AlSatKirala.resx">
+      <DependentUpon>AlSatKirala.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArsaEkle.resx">
+      <DependentUpon>ArsaEkle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmlakciEkle.resx">
+      <DependentUpon>EmlakciEkle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="isyeriEkle.resx">
+      <DependentUpon>isyeriEkle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="isyeriListesi.resx">
+      <DependentUpon>isyeriListesi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KonutEkle.resx">
+      <DependentUpon>KonutEkle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusteriEkle.resx">
+      <DependentUpon>MusteriEkle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
