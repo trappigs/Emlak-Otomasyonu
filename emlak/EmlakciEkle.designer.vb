@@ -42,7 +42,6 @@ Partial Class EmlakciEkle
         Me.Label9 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.binaNoTextBox = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -52,6 +51,7 @@ Partial Class EmlakciEkle
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ilComboBox = New System.Windows.Forms.ComboBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -177,7 +177,7 @@ Partial Class EmlakciEkle
         Me.DateTimePicker1.Location = New System.Drawing.Point(28, 376)
         Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(152, 22)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(137, 22)
         Me.DateTimePicker1.TabIndex = 13
         '
         'Label7
@@ -233,15 +233,6 @@ Partial Class EmlakciEkle
         Me.Label10.Size = New System.Drawing.Size(69, 16)
         Me.Label10.TabIndex = 20
         Me.Label10.Text = "Sokak Adı"
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(226, 193)
-        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(83, 24)
-        Me.ComboBox3.TabIndex = 19
         '
         'binaNoTextBox
         '
@@ -306,7 +297,7 @@ Partial Class EmlakciEkle
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(508, 342)
+        Me.Button1.Location = New System.Drawing.Point(499, 334)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(120, 55)
@@ -323,11 +314,20 @@ Partial Class EmlakciEkle
         Me.ilComboBox.Size = New System.Drawing.Size(83, 24)
         Me.ilComboBox.TabIndex = 30
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(226, 193)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(83, 22)
+        Me.TextBox1.TabIndex = 31
+        '
         'EmlakciEkle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(711, 418)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.ilComboBox)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox9)
@@ -338,7 +338,6 @@ Partial Class EmlakciEkle
         Me.Controls.Add(Me.binaNoTextBox)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label8)
@@ -386,7 +385,6 @@ Partial Class EmlakciEkle
     Friend WithEvents Label9 As Label
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents binaNoTextBox As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
@@ -396,4 +394,5 @@ Partial Class EmlakciEkle
     Friend WithEvents Label14 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents ilComboBox As ComboBox
+    Friend WithEvents TextBox1 As TextBox
 End Class

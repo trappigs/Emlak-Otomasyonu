@@ -30,12 +30,12 @@ Partial Class Form1
         Me.alSatKiralaBtn = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.musteriListesiBtn = New System.Windows.Forms.Button()
+        Me.emlakciListesiBtn = New System.Windows.Forms.Button()
+        Me.arsaListesiBtn = New System.Windows.Forms.Button()
+        Me.konutListesiBtn = New System.Windows.Forms.Button()
+        Me.isyeriListesiBtn = New System.Windows.Forms.Button()
+        Me.genelAramaBtn = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -95,12 +95,12 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.Button7)
-        Me.Panel1.Controls.Add(Me.Button6)
-        Me.Panel1.Controls.Add(Me.Button5)
-        Me.Panel1.Controls.Add(Me.Button4)
-        Me.Panel1.Controls.Add(Me.Button3)
-        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.genelAramaBtn)
+        Me.Panel1.Controls.Add(Me.isyeriListesiBtn)
+        Me.Panel1.Controls.Add(Me.konutListesiBtn)
+        Me.Panel1.Controls.Add(Me.arsaListesiBtn)
+        Me.Panel1.Controls.Add(Me.emlakciListesiBtn)
+        Me.Panel1.Controls.Add(Me.musteriListesiBtn)
         Me.Panel1.Controls.Add(Me.alSatKiralaBtn)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.isyeriEkleBtn)
@@ -121,59 +121,59 @@ Partial Class Form1
         Me.Panel2.Size = New System.Drawing.Size(880, 716)
         Me.Panel2.TabIndex = 8
         '
-        'Button2
+        'musteriListesiBtn
         '
-        Me.Button2.Location = New System.Drawing.Point(12, 360)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 52)
-        Me.Button2.TabIndex = 6
-        Me.Button2.Text = "Müşteri Listesi"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.musteriListesiBtn.Location = New System.Drawing.Point(12, 360)
+        Me.musteriListesiBtn.Name = "musteriListesiBtn"
+        Me.musteriListesiBtn.Size = New System.Drawing.Size(75, 52)
+        Me.musteriListesiBtn.TabIndex = 6
+        Me.musteriListesiBtn.Text = "Müşteri Listesi"
+        Me.musteriListesiBtn.UseVisualStyleBackColor = True
         '
-        'Button3
+        'emlakciListesiBtn
         '
-        Me.Button3.Location = New System.Drawing.Point(12, 418)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 52)
-        Me.Button3.TabIndex = 7
-        Me.Button3.Text = "Emlakçı Listesi"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.emlakciListesiBtn.Location = New System.Drawing.Point(12, 418)
+        Me.emlakciListesiBtn.Name = "emlakciListesiBtn"
+        Me.emlakciListesiBtn.Size = New System.Drawing.Size(75, 52)
+        Me.emlakciListesiBtn.TabIndex = 7
+        Me.emlakciListesiBtn.Text = "Emlakçı Listesi"
+        Me.emlakciListesiBtn.UseVisualStyleBackColor = True
         '
-        'Button4
+        'arsaListesiBtn
         '
-        Me.Button4.Location = New System.Drawing.Point(12, 476)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 52)
-        Me.Button4.TabIndex = 8
-        Me.Button4.Text = "Arsa Listesi"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.arsaListesiBtn.Location = New System.Drawing.Point(12, 476)
+        Me.arsaListesiBtn.Name = "arsaListesiBtn"
+        Me.arsaListesiBtn.Size = New System.Drawing.Size(75, 52)
+        Me.arsaListesiBtn.TabIndex = 8
+        Me.arsaListesiBtn.Text = "Arsa Listesi"
+        Me.arsaListesiBtn.UseVisualStyleBackColor = True
         '
-        'Button5
+        'konutListesiBtn
         '
-        Me.Button5.Location = New System.Drawing.Point(12, 534)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 52)
-        Me.Button5.TabIndex = 9
-        Me.Button5.Text = "Konut Listesi"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.konutListesiBtn.Location = New System.Drawing.Point(12, 534)
+        Me.konutListesiBtn.Name = "konutListesiBtn"
+        Me.konutListesiBtn.Size = New System.Drawing.Size(75, 52)
+        Me.konutListesiBtn.TabIndex = 9
+        Me.konutListesiBtn.Text = "Konut Listesi"
+        Me.konutListesiBtn.UseVisualStyleBackColor = True
         '
-        'Button6
+        'isyeriListesiBtn
         '
-        Me.Button6.Location = New System.Drawing.Point(12, 592)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 52)
-        Me.Button6.TabIndex = 10
-        Me.Button6.Text = "İşyeri Listesi"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.isyeriListesiBtn.Location = New System.Drawing.Point(12, 592)
+        Me.isyeriListesiBtn.Name = "isyeriListesiBtn"
+        Me.isyeriListesiBtn.Size = New System.Drawing.Size(75, 52)
+        Me.isyeriListesiBtn.TabIndex = 10
+        Me.isyeriListesiBtn.Text = "İşyeri Listesi"
+        Me.isyeriListesiBtn.UseVisualStyleBackColor = True
         '
-        'Button7
+        'genelAramaBtn
         '
-        Me.Button7.Location = New System.Drawing.Point(12, 650)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(75, 52)
-        Me.Button7.TabIndex = 11
-        Me.Button7.Text = "İşyeri Listesi"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.genelAramaBtn.Location = New System.Drawing.Point(12, 650)
+        Me.genelAramaBtn.Name = "genelAramaBtn"
+        Me.genelAramaBtn.Size = New System.Drawing.Size(75, 52)
+        Me.genelAramaBtn.TabIndex = 11
+        Me.genelAramaBtn.Text = "Genel Arama"
+        Me.genelAramaBtn.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -197,10 +197,10 @@ Partial Class Form1
     Friend WithEvents alSatKiralaBtn As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button7 As Button
+    Friend WithEvents musteriListesiBtn As Button
+    Friend WithEvents isyeriListesiBtn As Button
+    Friend WithEvents konutListesiBtn As Button
+    Friend WithEvents arsaListesiBtn As Button
+    Friend WithEvents emlakciListesiBtn As Button
+    Friend WithEvents genelAramaBtn As Button
 End Class
