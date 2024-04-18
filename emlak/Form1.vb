@@ -12,12 +12,12 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim ekle As New EmlakciEkle()
+        Dim ekle As New KisiEkle()
         FormGetir(ekle)
     End Sub
 
-    Private Sub musteriEkleBtn_Click(sender As Object, e As EventArgs) Handles musteriEkleBtn.Click
-        Dim ekle As New MusteriEkle()
+    Private Sub musteriEkleBtn_Click(sender As Object, e As EventArgs) 
+        Dim ekle As New KisiEkle()
         FormGetir(ekle)
     End Sub
 
@@ -41,13 +41,8 @@
         FormGetir(ekle)
     End Sub
 
-    Private Sub musteriListesiBtn_Click(sender As Object, e As EventArgs) Handles musteriListesiBtn.Click
-        Dim ekle As New MusteriListesi()
-        FormGetir(ekle)
-    End Sub
-
-    Private Sub emlakciListesiBtn_Click(sender As Object, e As EventArgs) Handles emlakciListesiBtn.Click
-        Dim ekle As New EmlakciListesi()
+    Private Sub kisiListesiBtn_Click(sender As Object, e As EventArgs) Handles kisiListesiBtn.Click
+        Dim ekle As New KisiListesi()
         FormGetir(ekle)
     End Sub
 
@@ -66,7 +61,11 @@
         FormGetir(ekle)
     End Sub
 
-    Private Sub genelAramaBtn_Click(sender As Object, e As EventArgs) Handles genelAramaBtn.Click
+    Private Sub genelAramaBtn_Click(sender As Object, e As EventArgs) 
         ' genel arama formu getirilsin
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
     End Sub
 End Class

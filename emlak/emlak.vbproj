@@ -91,16 +91,16 @@
     <Compile Include="ArsaListesi.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmlakciEkle.designer.vb">
-      <DependentUpon>EmlakciEkle.vb</DependentUpon>
+    <Compile Include="KisiEkle.designer.vb">
+      <DependentUpon>KisiEkle.vb</DependentUpon>
     </Compile>
-    <Compile Include="EmlakciEkle.vb">
+    <Compile Include="KisiEkle.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmlakciListesi.Designer.vb">
-      <DependentUpon>EmlakciListesi.vb</DependentUpon>
+    <Compile Include="KisiListesi.Designer.vb">
+      <DependentUpon>KisiListesi.vb</DependentUpon>
     </Compile>
-    <Compile Include="EmlakciListesi.vb">
+    <Compile Include="KisiListesi.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.vb">
@@ -134,18 +134,6 @@
     <Compile Include="KonutListesi.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MusteriEkle.designer.vb">
-      <DependentUpon>MusteriEkle.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MusteriEkle.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MusteriListesi.Designer.vb">
-      <DependentUpon>MusteriListesi.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MusteriListesi.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -161,6 +149,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="sqlAlSatKira.vb" />
     <Compile Include="VeriEkle.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -170,8 +159,14 @@
     <EmbeddedResource Include="ArsaEkle.resx">
       <DependentUpon>ArsaEkle.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmlakciEkle.resx">
-      <DependentUpon>EmlakciEkle.vb</DependentUpon>
+    <EmbeddedResource Include="ArsaListesi.resx">
+      <DependentUpon>ArsaListesi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KisiEkle.resx">
+      <DependentUpon>KisiEkle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KisiListesi.resx">
+      <DependentUpon>KisiListesi.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
@@ -185,8 +180,8 @@
     <EmbeddedResource Include="KonutEkle.resx">
       <DependentUpon>KonutEkle.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MusteriEkle.resx">
-      <DependentUpon>MusteriEkle.vb</DependentUpon>
+    <EmbeddedResource Include="KonutListesi.resx">
+      <DependentUpon>KonutListesi.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
