@@ -51,34 +51,42 @@ Public Class ArsaListesi
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
         Try
-            Dim componentsForArsa() As Control
+            'Dim componentsForArsa() As Control
+            Dim componentsForArsa As List(Of Control) = New List(Of Control) From {imar_cesidi, ada_no, parsel_no, kaks_degeri, gabari_degeri, tapu_durumu}
+
+            'ada_no, parsel_no, kaks_degeri, gabari_degeri, tapu_durumu)
 
             Dim componentsForAdres() As Control = {il_adi, ilce_adi, mahalle_adi, sokak_adi}
 
 
-            If alan.Text.Length > 0 And AlanBuyuk.Text.Length > 0 Then
-                ' sol kutu sağdakinden büyükse hata ver
-                If Convert.ToInt32(alan.Text) > Convert.ToInt32(AlanBuyuk.Text) Then
-                    MessageBox.Show("Alan kutu bilgisi doğru girilmedi")
-                    componentsForArsa = {imar_cesidi, ada_no, parsel_no, kaks_degeri, gabari_degeri, tapu_durumu, alan}
-                Else
-                    If alan.Text.Length > 0 And AlanBuyuk.Text = "" Then
-                        componentsForArsa = {imar_cesidi, ada_no, parsel_no, kaks_degeri, gabari_degeri, tapu_durumu, alan}
-                    ElseIf AlanBuyuk.Text.Length > 0 And alan.Text = "" Then
-                        componentsForArsa = {imar_cesidi, ada_no, parsel_no, kaks_degeri, gabari_degeri, tapu_durumu, AlanBuyuk}
-                    ElseIf AlanBuyuk.Text.Length > 0 And alan.Text.Length > 0 Then
-                        componentsForArsa = {imar_cesidi, ada_no, parsel_no, kaks_degeri, gabari_degeri, tapu_durumu, alan, AlanBuyuk}
-                    Else
-                        componentsForArsa = {imar_cesidi, ada_no, parsel_no, kaks_degeri, gabari_degeri, tapu_durumu, alan}
-                    End If
-                End If
-            Else
-                componentsForArsa = {imar_cesidi, ada_no, parsel_no, kaks_degeri, gabari_degeri, tapu_durumu, alan}
+            If alan.Text.Length > 0 And AlanBuyuk.Text = "" Then
+                componentsForArsa.Add(alan)
+            ElseIf AlanBuyuk.Text.Length > 0 And alan.Text = "" Then
+                componentsForArsa.Add(AlanBuyuk)
+            ElseIf AlanBuyuk.Text.Length > 0 And alan.Text.Length > 0 Then
+                componentsForArsa.Add(alan)
+                componentsForArsa.Add(AlanBuyuk)
+            End If
+
+            If kiraUcretiKucuk.Text.Length > 0 And kiraUcretiBuyuk.Text = "" Then
+                componentsForArsa.Add(kiraUcretiKucuk)
+            ElseIf kiraUcretiBuyuk.Text.Length > 0 And kiraUcretiKucuk.Text = "" Then
+                componentsForArsa.Add(kiraUcretiBuyuk)
+            ElseIf kiraUcretiBuyuk.Text.Length > 0 And kiraUcretiKucuk.Text.Length > 0 Then
+                componentsForArsa.Add(kiraUcretiKucuk)
+                componentsForArsa.Add(kiraUcretiBuyuk)
             End If
 
 
+            If satisUcretiKucuk.Text.Length > 0 And satisUcretiBuyuk.Text = "" Then
+                componentsForArsa.Add(satisUcretiKucuk)
+            ElseIf satisUcretiBuyuk.Text.Length > 0 And satisUcretiKucuk.Text = "" Then
+                componentsForArsa.Add(satisUcretiBuyuk)
+            ElseIf satisUcretiBuyuk.Text.Length > 0 And satisUcretiKucuk.Text.Length > 0 Then
+                componentsForArsa.Add(satisUcretiKucuk)
+                componentsForArsa.Add(satisUcretiBuyuk)
+            End If
 
             If emlak_sahibi_tc.SelectedValue IsNot Nothing Then
                 DataGridView1.DataSource = isyeriSorgula(Me, componentsForArsa, componentsForAdres, emlak_sahibi_tc.SelectedValue.ToString())
@@ -91,14 +99,16 @@ Public Class ArsaListesi
                 DataGridView1.Columns(DataGridView1.Columns.Count - 2).Visible = False
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
+            Throw
         End Try
 
     End Sub
 
-    Function isyeriSorgula(form As Form, componentsForArsa() As Control, componentsForAdres() As Control, kisi_tc As String) As DataTable
+
+    Function isyeriSorgula(form As Form, componentsForArsa As List(Of Control), componentsForAdres() As Control, kisi_tc As String) As DataTable
         Try
-            Dim queryBirlesikString As String = "select imar_cesidi as 'İmar Çeşidi', ada_no as 'Ada No', parsel_no as 'Parsel No', kaks_degeri as 'Kaks Değeri', gabari_degeri as 'Gabari Değeri', tapu_durumu as 'Tapu Durumu', aciklama as 'Açıklama', alan as 'Alan', emlak_sahibi_tc as 'Emlak Sahibi TC', adres.il_adi as İl, adres.ilce_adi as İlçe, adres.mahalle_adi as Mahalle, adres.sokak_adi as 'Sokak Adı', adres.acik_adres as 'Açık Adres', arsa.arsa_id as 'arsa.arsa_id', adres.arsa_id as 'adres.arsa_id' from arsa, adres where arsa.emlak_sahibi_tc = adres.kisi_tc and arsa.arsa_id = adres.arsa_id "
+            Dim queryBirlesikString As String = "select kisiler.adi as 'Adı', kisiler.soyadi as 'Soyadı', emlak_sahibi_tc as 'Emlak Sahibi TC', imar_cesidi as 'İmar Çeşidi', ada_no as 'Ada No', parsel_no as 'Parsel No', kaks_degeri as 'Kaks Değeri', gabari_degeri as 'Gabari Değeri', tapu_durumu as 'Tapu Durumu', arsa.aciklama as 'Açıklama', alan as 'Alan', kira_ucret as 'Kira Ücreti', satis_ucret as 'Satış Ücreti', adres.il_adi as İl, adres.ilce_adi as İlçe, adres.mahalle_adi as Mahalle, adres.sokak_adi as 'Sokak Adı', adres.acik_adres as 'Açık Adres', arsa.arsa_id as 'arsa.arsa_id', adres.arsa_id as 'adres.arsa_id' from arsa, adres, kisiler where arsa.emlak_sahibi_tc = adres.kisi_tc and arsa.arsa_id = adres.arsa_id and kisiler.kisi_tc = adres.kisi_tc and kisiler.kisi_tc = emlak_sahibi_tc "
             If kisi_tc IsNot "" Then
                 queryBirlesikString += "AND arsa.emlak_sahibi_tc = '" + kisi_tc.ToString() + "' "
             End If
@@ -112,18 +122,22 @@ Public Class ArsaListesi
                     ' kontrol: alan kutularına sadece sayı girilebilmeli
                     If txtBox.Name = "alan" Then
                         queryBirlesikString &= "AND arsa." & txtBox.Name & " >= " & txtBox.Text & " "
-                        MessageBox.Show(txtBox.Name)
                     ElseIf txtBox.Name = "AlanBuyuk" Then
                         queryBirlesikString &= "AND arsa." & "alan " & " <= " & txtBox.Text & " "
-                        MessageBox.Show("buyuk " + txtBox.Name)
+                    ElseIf txtBox.Name = "kiraUcretiKucuk" Then
+                        queryBirlesikString &= "AND arsa." & "kira_ucret " & " >= " & txtBox.Text & " "
+                    ElseIf txtBox.Name = "kiraUcretiBuyuk" Then
+                        queryBirlesikString &= "AND arsa." & "kira_ucret " & " <= " & txtBox.Text & " "
+                    ElseIf txtBox.Name = "satisUcretiKucuk" Then
+                        queryBirlesikString &= "AND arsa." & "satis_ucret " & " >= " & txtBox.Text & " "
+                    ElseIf txtBox.Name = "satisUcretiBuyuk" Then
+                        queryBirlesikString &= "AND arsa." & "satis_ucret " & " <= " & txtBox.Text & " "
                     ElseIf txtBox.Name = "kaks_degeri" Then
                         queryBirlesikString &= "AND arsa." & txtBox.Name & " = " & txtBox.Text.Replace(",", ".") & " "
                     ElseIf txtBox.Name = "gabari_degeri" Then
-                        MessageBox.Show("naber")
                         queryBirlesikString &= "AND arsa." & txtBox.Name & " = " & txtBox.Text.Replace(",", ".") & " "
                     Else
                         queryBirlesikString &= "AND arsa." & txtBox.Name & " LIKE N'%" & txtBox.Text & "%' "
-                        MessageBox.Show("ne bu: " + txtBox.Name)
                     End If
 
                 End If
@@ -134,7 +148,6 @@ Public Class ArsaListesi
                     If cmbBox.Name = "kaks_degeri" Then
                         queryBirlesikString &= "AND arsa." & cmbBox.Name & " = " & cmbBox.Text.Replace(",", ".") & " "
                     ElseIf cmbBox.Name = "gabari_degeri" Then
-                        MessageBox.Show("naber")
                         queryBirlesikString &= "AND arsa." & cmbBox.Name & " = " & cmbBox.Text.Replace(",", ".") & " "
                     Else
                         queryBirlesikString &= "AND arsa." & cmbBox.Name & " = N'" & cmbBox.Text & "' "
@@ -156,7 +169,6 @@ Public Class ArsaListesi
                     queryBirlesikString &= "AND adres." & cmbBox.Name & " LIKE N'" & cmbBox.Text & "' "
                 End If
             Next
-
 
             Dim dtIsyeriVeAdres As New DataTable()
 
@@ -185,8 +197,114 @@ Public Class ArsaListesi
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+            Throw
         End Try
     End Function
+
+    'Function isyeriSorgula(form As Form, componentsForArsa As List(Of Control), componentsForAdres() As Control, kisi_tc As String) As DataTable
+    '    Try
+    '        Dim queryBirlesikString As String = "select imar_cesidi as 'İmar Çeşidi', ada_no as 'Ada No', parsel_no as 'Parsel No', kaks_degeri as 'Kaks Değeri', gabari_degeri as 'Gabari Değeri', tapu_durumu as 'Tapu Durumu', aciklama as 'Açıklama', alan as 'Alan', kira_ucret as 'Kira Ücreti', satis_ucret as 'Satış Ücreti', emlak_sahibi_tc as 'Emlak Sahibi TC', adres.il_adi as İl, adres.ilce_adi as İlçe, adres.mahalle_adi as Mahalle, adres.sokak_adi as 'Sokak Adı', adres.acik_adres as 'Açık Adres', arsa.arsa_id as 'arsa.arsa_id', adres.arsa_id as 'adres.arsa_id'  from arsa, adres where arsa.emlak_sahibi_tc = adres.kisi_tc and arsa.arsa_id = adres.arsa_id "
+    '        If kisi_tc IsNot "" Then
+    '            queryBirlesikString += "AND arsa.emlak_sahibi_tc = '" + kisi_tc.ToString() + "' "
+    '        End If
+
+    '        For Each ctrl As Control In componentsForArsa
+    '            If TypeOf ctrl Is TextBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, TextBox).Text) Then
+    '                Dim txtBox As TextBox = DirectCast(ctrl, TextBox)
+    '                ' alan > 50
+    '                ' alan < 50
+    '                ' kontrol: soldaki kutu sağdakinden mutlaka küçük olmalı
+    '                ' kontrol: alan kutularına sadece sayı girilebilmeli
+    '                If txtBox.Name = "alan" Then
+    '                    queryBirlesikString &= "AND arsa." & txtBox.Name & " >= " & txtBox.Text & " "
+    '                    MessageBox.Show(txtBox.Name)
+    '                ElseIf txtBox.Name = "AlanBuyuk" Then
+    '                    queryBirlesikString &= "AND arsa." & "alan " & " <= " & txtBox.Text & " "
+    '                    MessageBox.Show("buyuk " + txtBox.Name)
+    '                ElseIf txtBox.Name = "kiraUcretiKucuk" Then
+    '                    queryBirlesikString &= "AND arsa." & "kira_ucreti" & " >= " & txtBox.Text & " "
+    '                    MessageBox.Show(txtBox.Name)
+    '                ElseIf txtBox.Name = "kiraUcretiBuyuk" Then
+    '                    queryBirlesikString &= "AND arsa." & "kira_ucreti " & " <= " & txtBox.Text & " "
+    '                    MessageBox.Show("buyuk " + txtBox.Name)
+    '                ElseIf txtBox.Name = "satisUcretiKucuk" Then
+    '                    queryBirlesikString &= "AND arsa." & "satis_ucreti" & " >= " & txtBox.Text & " "
+    '                    MessageBox.Show(txtBox.Name)
+    '                ElseIf txtBox.Name = "satisUcretiBuyuk" Then
+    '                    queryBirlesikString &= "AND arsa." & "satis_ucreti " & " <= " & txtBox.Text & " "
+    '                    MessageBox.Show("buyuk " + txtBox.Name)
+    '                ElseIf txtBox.Name = "kaks_degeri" Then
+    '                    queryBirlesikString &= "AND arsa." & txtBox.Name & " = " & txtBox.Text.Replace(",", ".") & " "
+    '                ElseIf txtBox.Name = "gabari_degeri" Then
+    '                    MessageBox.Show("naber")
+    '                    queryBirlesikString &= "AND arsa." & txtBox.Name & " = " & txtBox.Text.Replace(",", ".") & " "
+    '                Else
+    '                    queryBirlesikString &= "AND arsa." & txtBox.Name & " LIKE N'%" & txtBox.Text & "%' "
+    '                    MessageBox.Show("ne bu: " + txtBox.Name)
+    '                End If
+
+    '            End If
+
+    '            If TypeOf ctrl Is ComboBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, ComboBox).Text) Then
+    '                Dim cmbBox As ComboBox = DirectCast(ctrl, ComboBox)
+
+    '                If cmbBox.Name = "kaks_degeri" Then
+    '                    queryBirlesikString &= "AND arsa." & cmbBox.Name & " = " & cmbBox.Text.Replace(",", ".") & " "
+    '                ElseIf cmbBox.Name = "gabari_degeri" Then
+    '                    MessageBox.Show("naber")
+    '                    queryBirlesikString &= "AND arsa." & cmbBox.Name & " = " & cmbBox.Text.Replace(",", ".") & " "
+    '                Else
+    '                    queryBirlesikString &= "AND arsa." & cmbBox.Name & " = N'" & cmbBox.Text & "' "
+    '                End If
+
+    '            End If
+    '        Next
+
+
+    '        For Each ctrl As Control In componentsForAdres
+    '            If TypeOf ctrl Is TextBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, TextBox).Text) Then
+    '                Dim txtBox As TextBox = DirectCast(ctrl, TextBox)
+
+    '                queryBirlesikString &= "AND adres." & txtBox.Name & " LIKE N'" & txtBox.Text & "' "
+    '            End If
+
+    '            If TypeOf ctrl Is ComboBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, ComboBox).Text) Then
+    '                Dim cmbBox As ComboBox = DirectCast(ctrl, ComboBox)
+    '                queryBirlesikString &= "AND adres." & cmbBox.Name & " LIKE N'" & cmbBox.Text & "' "
+    '            End If
+    '        Next
+    '        MessageBox.Show(queryBirlesikString)
+
+    '        Dim dtIsyeriVeAdres As New DataTable()
+
+    '        Using connection As New SqlConnection(connectionString)
+    '            connection.Open()
+    '            Try
+    '                Using commandKisi As New SqlCommand(queryBirlesikString, connection)
+    '                    Using reader As SqlDataReader = commandKisi.ExecuteReader()
+    '                        ' DataGridView'e sonuçları aktarın
+    '                        dtIsyeriVeAdres.Load(reader)
+    '                    End Using
+    '                End Using
+
+    '            Catch ex As Exception
+    '                MessageBox.Show(ex.Message)
+    '            End Try
+    '        End Using
+
+    '        If dtIsyeriVeAdres.Rows.Count > 0 Then
+    '            Return dtIsyeriVeAdres
+    '        Else
+    '            MessageBox.Show(queryBirlesikString)
+    '            MessageBox.Show("Kayıt bulunamadı.")
+    '            Return Nothing
+    '        End If
+
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message)
+    '        Throw
+    '    End Try
+    'End Function
 
 
 
@@ -236,6 +354,8 @@ Public Class ArsaListesi
         sqlIsyeriKolonlari.Add("Tapu Durumu", "tapu_durumu")
         sqlIsyeriKolonlari.Add("Açıklama", "aciklama")
         sqlIsyeriKolonlari.Add("Alan", "alan")
+        sqlIsyeriKolonlari.Add("Kira Ücreti", "kira_ucret")
+        sqlIsyeriKolonlari.Add("Satış Ücreti", "satis_ucret")
 
         ' Adres tablosu için kolon adları ve gösterilecek adlarını eşleştiren sözlük
         sqlAdresKolonlari.Add("İl", "il_adi")

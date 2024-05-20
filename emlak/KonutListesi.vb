@@ -5,8 +5,38 @@ Public Class KonutListesi
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         'bu sorguyu kullanacağım
-        Dim componentsForKonut() As Control = {oda_sayisi, bulundugu_kat, bina_kat_sayisi, isitma, balkon_sayisi, banyo_sayisi, aidat_ucreti, alan, otopark, cephe, esya_evet, esya_hayir, asansor_evet, asansor_hayir}
+        Dim componentsForKonut As List(Of Control) = New List(Of Control) From {oda_sayisi, bulundugu_kat, bina_kat_sayisi, isitma, balkon_sayisi, banyo_sayisi, aidat_ucreti, alan, otopark, cephe, esya_evet, esya_hayir, asansor_evet, asansor_hayir}
         Dim componentsForAdres() As Control = {il_adi, ilce_adi, mahalle_adi, sokak_adi, mahalle_adi, bina_no, daire_no}
+
+
+        If alan.Text.Length > 0 And AlanBuyuk.Text = "" Then
+            componentsForKonut.Add(alan)
+        ElseIf AlanBuyuk.Text.Length > 0 And alan.Text = "" Then
+            componentsForKonut.Add(AlanBuyuk)
+        ElseIf AlanBuyuk.Text.Length > 0 And alan.Text.Length > 0 Then
+            componentsForKonut.Add(alan)
+            componentsForKonut.Add(AlanBuyuk)
+        End If
+
+        If kiraUcretiKucuk.Text.Length > 0 And kiraUcretiBuyuk.Text = "" Then
+            componentsForKonut.Add(kiraUcretiKucuk)
+        ElseIf kiraUcretiBuyuk.Text.Length > 0 And kiraUcretiKucuk.Text = "" Then
+            componentsForKonut.Add(kiraUcretiBuyuk)
+        ElseIf kiraUcretiBuyuk.Text.Length > 0 And kiraUcretiKucuk.Text.Length > 0 Then
+            componentsForKonut.Add(kiraUcretiKucuk)
+            componentsForKonut.Add(kiraUcretiBuyuk)
+        End If
+
+
+        If satisUcretiKucuk.Text.Length > 0 And satisUcretiBuyuk.Text = "" Then
+            componentsForKonut.Add(satisUcretiKucuk)
+        ElseIf satisUcretiBuyuk.Text.Length > 0 And satisUcretiKucuk.Text = "" Then
+            componentsForKonut.Add(satisUcretiBuyuk)
+        ElseIf satisUcretiBuyuk.Text.Length > 0 And satisUcretiKucuk.Text.Length > 0 Then
+            componentsForKonut.Add(satisUcretiKucuk)
+            componentsForKonut.Add(satisUcretiBuyuk)
+        End If
+
 
 
         If emlak_sahibi_tc.SelectedIndex > 0 Then
@@ -29,8 +59,8 @@ Public Class KonutListesi
     Dim connectionString As String = "Data Source=BU2-C-000WY\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
     Dim connection As New SqlConnection(connectionString)
 
-    Function isyeriSorgula(form As Form, componentsForArsa() As Control, componentsForAdres() As Control, kisi_tc As String) As DataTable
-        Dim queryBirlesikString As String = "select bina_yapim_yili AS 'Bina Yapım Yılı', oda_sayisi as 'Oda Sayısı', bulundugu_kat as 'Bulunduğu Kat', bina_kat_sayisi as 'Bina Kat Sayısı', isitma as 'Isıtma', banyo_sayisi as 'Banyo Sayısı', balkon_sayisi as 'Balkon Sayısı', asansor_var_mi as 'Asansör', otopark as 'Otopark', esyali_mi as 'Eşyalı', aidat_ucret as 'Aidat Ücret', aciklama as 'Açıklama', alan as 'Alan', emlak_sahibi_tc as 'Emlak Sahibi TC', cephe as 'Cephe', adres.il_adi as İl, adres.ilce_adi as İlçe, adres.mahalle_adi as Mahalle, adres.sokak_adi as 'Sokak Adı', adres.bina_no as 'Bina Numarası', adres.daire_no as 'Daire Numarası', adres.acik_adres as 'Açık Adres', konutlar.konut_id AS 'konutlar.konut_id', adres.konut_id AS 'adres.konut_id' from konutlar, adres WHERE konutlar.emlak_sahibi_tc = adres.kisi_tc and konutlar.konut_id = adres.konut_id "
+    Function isyeriSorgula(form As Form, componentsForArsa As List(Of Control), componentsForAdres() As Control, kisi_tc As String) As DataTable
+        Dim queryBirlesikString As String = "select kisiler.adi as 'Adı', kisiler.soyadi as 'Soyadı', satis_ucret as 'Satış Ücreti', kira_ucret as 'Kira Ücreti', bina_yapim_yili AS 'Bina Yapım Yılı', oda_sayisi as 'Oda Sayısı', bulundugu_kat as 'Bulunduğu Kat', bina_kat_sayisi as 'Bina Kat Sayısı', isitma as 'Isıtma', banyo_sayisi as 'Banyo Sayısı', balkon_sayisi as 'Balkon Sayısı', asansor_var_mi as 'Asansör', otopark as 'Otopark', esyali_mi as 'Eşyalı', aidat_ucret as 'Aidat Ücret', konutlar.aciklama as 'Açıklama', alan as 'Alan', emlak_sahibi_tc as 'Emlak Sahibi TC', cephe as 'Cephe', adres.il_adi as İl, adres.ilce_adi as İlçe, adres.mahalle_adi as Mahalle, adres.sokak_adi as 'Sokak Adı', adres.bina_no as 'Bina Numarası', adres.daire_no as 'Daire Numarası', adres.acik_adres as 'Açık Adres', konutlar.konut_id AS 'konutlar.konut_id', adres.konut_id AS 'adres.konut_id' from konutlar, adres, kisiler WHERE konutlar.emlak_sahibi_tc = adres.kisi_tc and konutlar.konut_id = adres.konut_id and kisiler.kisi_tc = konutlar.emlak_sahibi_tc and kisiler.kisi_tc = adres.kisi_tc "
         If Not kisi_tc = "" Then
             queryBirlesikString += "AND konutlar.emlak_sahibi_tc = '" + kisi_tc + "' "
         End If
@@ -39,8 +69,21 @@ Public Class KonutListesi
             If TypeOf ctrl Is TextBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, TextBox).Text) Then
                 Dim txtBox As TextBox = DirectCast(ctrl, TextBox)
 
-                queryBirlesikString &= "AND konutlar." & txtBox.Name & " LIKE N'%" & txtBox.Text & "%' "
-
+                If txtBox.Name = "alan" Then
+                    queryBirlesikString &= "AND konutlar." & txtBox.Name & " >= " & txtBox.Text & " "
+                ElseIf txtBox.Name = "AlanBuyuk" Then
+                    queryBirlesikString &= "AND konutlar." & "alan " & " <= " & txtBox.Text & " "
+                ElseIf txtBox.Name = "kiraUcretiKucuk" Then
+                    queryBirlesikString &= "AND konutlar." & "kira_ucret " & " >= " & txtBox.Text & " "
+                ElseIf txtBox.Name = "kiraUcretiBuyuk" Then
+                    queryBirlesikString &= "AND konutlar." & "kira_ucret " & " <= " & txtBox.Text & " "
+                ElseIf txtBox.Name = "satisUcretiKucuk" Then
+                    queryBirlesikString &= "AND konutlar." & "satis_ucret " & " >= " & txtBox.Text & " "
+                ElseIf txtBox.Name = "satisUcretiBuyuk" Then
+                    queryBirlesikString &= "AND konutlar." & "satis_ucret " & " <= " & txtBox.Text & " "
+                Else
+                    queryBirlesikString &= "AND konutlar." & txtBox.Name & " LIKE N'%" & txtBox.Text & "%' "
+                End If
             End If
 
             If TypeOf ctrl Is ComboBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, ComboBox).Text) Then

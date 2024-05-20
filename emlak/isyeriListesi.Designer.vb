@@ -44,9 +44,18 @@ Partial Class isyeriListesi
         Me.mahalle_adi = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ilce_adi = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.satisUcretiBuyuk = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.satisUcretiKucuk = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.kiraUcretiBuyuk = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.kiraUcretiKucuk = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.AlanBuyuk = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.alan = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -64,7 +73,7 @@ Partial Class isyeriListesi
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(74, 370)
+        Me.Button1.Location = New System.Drawing.Point(69, 451)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(90, 52)
         Me.Button1.TabIndex = 1
@@ -73,7 +82,7 @@ Partial Class isyeriListesi
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(182, 370)
+        Me.Button2.Location = New System.Drawing.Point(177, 451)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(90, 52)
         Me.Button2.TabIndex = 2
@@ -243,38 +252,126 @@ Partial Class isyeriListesi
         Me.ilce_adi.Size = New System.Drawing.Size(83, 24)
         Me.ilce_adi.TabIndex = 132
         '
-        'TextBox1
+        'satisUcretiBuyuk
         '
-        Me.TextBox1.Location = New System.Drawing.Point(36, 298)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(73, 22)
-        Me.TextBox1.TabIndex = 140
+        Me.satisUcretiBuyuk.Location = New System.Drawing.Point(177, 408)
+        Me.satisUcretiBuyuk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.satisUcretiBuyuk.Name = "satisUcretiBuyuk"
+        Me.satisUcretiBuyuk.Size = New System.Drawing.Size(83, 22)
+        Me.satisUcretiBuyuk.TabIndex = 263
         '
-        'TextBox2
+        'Label14
         '
-        Me.TextBox2.Location = New System.Drawing.Point(132, 298)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(73, 22)
-        Me.TextBox2.TabIndex = 141
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(177, 390)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(75, 16)
+        Me.Label14.TabIndex = 262
+        Me.Label14.Text = "Satış Ücreti"
+        '
+        'satisUcretiKucuk
+        '
+        Me.satisUcretiKucuk.Location = New System.Drawing.Point(74, 408)
+        Me.satisUcretiKucuk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.satisUcretiKucuk.Name = "satisUcretiKucuk"
+        Me.satisUcretiKucuk.Size = New System.Drawing.Size(83, 22)
+        Me.satisUcretiKucuk.TabIndex = 261
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(74, 390)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(75, 16)
+        Me.Label16.TabIndex = 260
+        Me.Label16.Text = "Satış Ücreti"
+        '
+        'kiraUcretiBuyuk
+        '
+        Me.kiraUcretiBuyuk.Location = New System.Drawing.Point(177, 350)
+        Me.kiraUcretiBuyuk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.kiraUcretiBuyuk.Name = "kiraUcretiBuyuk"
+        Me.kiraUcretiBuyuk.Size = New System.Drawing.Size(83, 22)
+        Me.kiraUcretiBuyuk.TabIndex = 259
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(177, 332)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(68, 16)
+        Me.Label11.TabIndex = 258
+        Me.Label11.Text = "Kira Ücreti"
+        '
+        'kiraUcretiKucuk
+        '
+        Me.kiraUcretiKucuk.Location = New System.Drawing.Point(74, 350)
+        Me.kiraUcretiKucuk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.kiraUcretiKucuk.Name = "kiraUcretiKucuk"
+        Me.kiraUcretiKucuk.Size = New System.Drawing.Size(83, 22)
+        Me.kiraUcretiKucuk.TabIndex = 257
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(74, 332)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(68, 16)
+        Me.Label13.TabIndex = 256
+        Me.Label13.Text = "Kira Ücreti"
+        '
+        'AlanBuyuk
+        '
+        Me.AlanBuyuk.Location = New System.Drawing.Point(177, 297)
+        Me.AlanBuyuk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.AlanBuyuk.Name = "AlanBuyuk"
+        Me.AlanBuyuk.Size = New System.Drawing.Size(83, 22)
+        Me.AlanBuyuk.TabIndex = 255
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(36, 279)
+        Me.Label4.Location = New System.Drawing.Point(177, 279)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(34, 16)
-        Me.Label4.TabIndex = 142
-        Me.Label4.Text = "Alan"
+        Me.Label4.Size = New System.Drawing.Size(60, 16)
+        Me.Label4.TabIndex = 254
+        Me.Label4.Text = "Alan(m2)"
+        '
+        'alan
+        '
+        Me.alan.Location = New System.Drawing.Point(74, 297)
+        Me.alan.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.alan.Name = "alan"
+        Me.alan.Size = New System.Drawing.Size(83, 22)
+        Me.alan.TabIndex = 253
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(74, 279)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(60, 16)
+        Me.Label24.TabIndex = 252
+        Me.Label24.Text = "Alan(m2)"
         '
         'isyeriListesi
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ClientSize = New System.Drawing.Size(1143, 480)
+        Me.ClientSize = New System.Drawing.Size(1143, 515)
+        Me.Controls.Add(Me.satisUcretiBuyuk)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.satisUcretiKucuk)
+        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.kiraUcretiBuyuk)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.kiraUcretiKucuk)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.AlanBuyuk)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.alan)
+        Me.Controls.Add(Me.Label24)
         Me.Controls.Add(Me.sokak_adi)
         Me.Controls.Add(Me.il_adi)
         Me.Controls.Add(Me.Label12)
@@ -327,7 +424,16 @@ Partial Class isyeriListesi
     Friend WithEvents mahalle_adi As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents ilce_adi As ComboBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents satisUcretiBuyuk As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents satisUcretiKucuk As TextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents kiraUcretiBuyuk As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents kiraUcretiKucuk As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents AlanBuyuk As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents alan As TextBox
+    Friend WithEvents Label24 As Label
 End Class

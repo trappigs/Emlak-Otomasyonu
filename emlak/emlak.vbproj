@@ -134,6 +134,12 @@
     <Compile Include="KonutListesi.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="KullaniciArsaListesi.Designer.vb">
+      <DependentUpon>KullaniciArsaListesi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KullaniciArsaListesi.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KonutListesi.resx">
       <DependentUpon>KonutListesi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KullaniciArsaListesi.resx">
+      <DependentUpon>KullaniciArsaListesi.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

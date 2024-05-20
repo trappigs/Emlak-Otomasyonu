@@ -22,12 +22,11 @@ Partial Class KonutListesi
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.alan = New System.Windows.Forms.TextBox()
-        Me.Label24 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.cephe = New System.Windows.Forms.ComboBox()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -69,6 +68,17 @@ Partial Class KonutListesi
         Me.label21 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.bina_kat_sayisi = New System.Windows.Forms.TextBox()
+        Me.satisUcretiBuyuk = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.satisUcretiKucuk = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.kiraUcretiBuyuk = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.kiraUcretiKucuk = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.AlanBuyuk = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -85,20 +95,11 @@ Partial Class KonutListesi
         '
         'alan
         '
-        Me.alan.Location = New System.Drawing.Point(190, 163)
+        Me.alan.Location = New System.Drawing.Point(342, 315)
         Me.alan.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.alan.Name = "alan"
         Me.alan.Size = New System.Drawing.Size(83, 22)
         Me.alan.TabIndex = 238
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(193, 143)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(60, 16)
-        Me.Label24.TabIndex = 237
-        Me.Label24.Text = "Alan(m2)"
         '
         'Label20
         '
@@ -176,7 +177,7 @@ Partial Class KonutListesi
         Me.esya_hayir.Location = New System.Drawing.Point(93, 399)
         Me.esya_hayir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.esya_hayir.Name = "esya_hayir"
-        Me.esya_hayir.Size = New System.Drawing.Size(57, 20)
+        Me.esya_hayir.Size = New System.Drawing.Size(60, 20)
         Me.esya_hayir.TabIndex = 221
         Me.esya_hayir.TabStop = True
         Me.esya_hayir.Text = "Hayır"
@@ -188,7 +189,7 @@ Partial Class KonutListesi
         Me.esya_evet.Location = New System.Drawing.Point(32, 399)
         Me.esya_evet.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.esya_evet.Name = "esya_evet"
-        Me.esya_evet.Size = New System.Drawing.Size(52, 20)
+        Me.esya_evet.Size = New System.Drawing.Size(55, 20)
         Me.esya_evet.TabIndex = 220
         Me.esya_evet.TabStop = True
         Me.esya_evet.Text = "Evet"
@@ -209,7 +210,7 @@ Partial Class KonutListesi
         Me.asansor_hayir.Location = New System.Drawing.Point(75, 37)
         Me.asansor_hayir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.asansor_hayir.Name = "asansor_hayir"
-        Me.asansor_hayir.Size = New System.Drawing.Size(57, 20)
+        Me.asansor_hayir.Size = New System.Drawing.Size(60, 20)
         Me.asansor_hayir.TabIndex = 218
         Me.asansor_hayir.TabStop = True
         Me.asansor_hayir.Text = "Hayır"
@@ -221,7 +222,7 @@ Partial Class KonutListesi
         Me.asansor_evet.Location = New System.Drawing.Point(14, 38)
         Me.asansor_evet.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.asansor_evet.Name = "asansor_evet"
-        Me.asansor_evet.Size = New System.Drawing.Size(52, 20)
+        Me.asansor_evet.Size = New System.Drawing.Size(55, 20)
         Me.asansor_evet.TabIndex = 217
         Me.asansor_evet.TabStop = True
         Me.asansor_evet.Text = "Evet"
@@ -431,33 +432,33 @@ Partial Class KonutListesi
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.Location = New System.Drawing.Point(597, 39)
         Me.DataGridView1.Name = "DataGridView1"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(530, 416)
@@ -499,12 +500,117 @@ Partial Class KonutListesi
         Me.bina_kat_sayisi.Size = New System.Drawing.Size(83, 22)
         Me.bina_kat_sayisi.TabIndex = 263
         '
+        'satisUcretiBuyuk
+        '
+        Me.satisUcretiBuyuk.Location = New System.Drawing.Point(445, 426)
+        Me.satisUcretiBuyuk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.satisUcretiBuyuk.Name = "satisUcretiBuyuk"
+        Me.satisUcretiBuyuk.Size = New System.Drawing.Size(83, 22)
+        Me.satisUcretiBuyuk.TabIndex = 275
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(445, 408)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(75, 16)
+        Me.Label14.TabIndex = 274
+        Me.Label14.Text = "Satış Ücreti"
+        '
+        'satisUcretiKucuk
+        '
+        Me.satisUcretiKucuk.Location = New System.Drawing.Point(342, 426)
+        Me.satisUcretiKucuk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.satisUcretiKucuk.Name = "satisUcretiKucuk"
+        Me.satisUcretiKucuk.Size = New System.Drawing.Size(83, 22)
+        Me.satisUcretiKucuk.TabIndex = 273
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(342, 408)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(75, 16)
+        Me.Label7.TabIndex = 272
+        Me.Label7.Text = "Satış Ücreti"
+        '
+        'kiraUcretiBuyuk
+        '
+        Me.kiraUcretiBuyuk.Location = New System.Drawing.Point(445, 368)
+        Me.kiraUcretiBuyuk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.kiraUcretiBuyuk.Name = "kiraUcretiBuyuk"
+        Me.kiraUcretiBuyuk.Size = New System.Drawing.Size(83, 22)
+        Me.kiraUcretiBuyuk.TabIndex = 271
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(445, 350)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(68, 16)
+        Me.Label19.TabIndex = 270
+        Me.Label19.Text = "Kira Ücreti"
+        '
+        'kiraUcretiKucuk
+        '
+        Me.kiraUcretiKucuk.Location = New System.Drawing.Point(342, 368)
+        Me.kiraUcretiKucuk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.kiraUcretiKucuk.Name = "kiraUcretiKucuk"
+        Me.kiraUcretiKucuk.Size = New System.Drawing.Size(83, 22)
+        Me.kiraUcretiKucuk.TabIndex = 269
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(342, 350)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(68, 16)
+        Me.Label22.TabIndex = 268
+        Me.Label22.Text = "Kira Ücreti"
+        '
+        'AlanBuyuk
+        '
+        Me.AlanBuyuk.Location = New System.Drawing.Point(445, 315)
+        Me.AlanBuyuk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.AlanBuyuk.Name = "AlanBuyuk"
+        Me.AlanBuyuk.Size = New System.Drawing.Size(83, 22)
+        Me.AlanBuyuk.TabIndex = 267
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(445, 297)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(60, 16)
+        Me.Label23.TabIndex = 266
+        Me.Label23.Text = "Alan(m2)"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(342, 297)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(60, 16)
+        Me.Label25.TabIndex = 264
+        Me.Label25.Text = "Alan(m2)"
+        '
         'KonutListesi
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(1154, 474)
+        Me.Controls.Add(Me.satisUcretiBuyuk)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.satisUcretiKucuk)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.kiraUcretiBuyuk)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.kiraUcretiKucuk)
+        Me.Controls.Add(Me.Label22)
+        Me.Controls.Add(Me.AlanBuyuk)
+        Me.Controls.Add(Me.Label23)
+        Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.bina_kat_sayisi)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.label21)
@@ -513,7 +619,6 @@ Partial Class KonutListesi
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.alan)
-        Me.Controls.Add(Me.Label24)
         Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.cephe)
         Me.Controls.Add(Me.Label18)
@@ -557,7 +662,6 @@ Partial Class KonutListesi
     End Sub
     Friend WithEvents Button1 As Button
     Friend WithEvents alan As TextBox
-    Friend WithEvents Label24 As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents cephe As ComboBox
     Friend WithEvents Label18 As Label
@@ -599,4 +703,15 @@ Partial Class KonutListesi
     Friend WithEvents label21 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents bina_kat_sayisi As TextBox
+    Friend WithEvents satisUcretiBuyuk As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents satisUcretiKucuk As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents kiraUcretiBuyuk As TextBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents kiraUcretiKucuk As TextBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents AlanBuyuk As TextBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label25 As Label
 End Class

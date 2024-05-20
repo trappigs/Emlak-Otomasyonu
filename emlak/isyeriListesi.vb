@@ -5,13 +5,43 @@ Public Class isyeriListesi
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'bu sorguyu kullanacağım
         Dim sorgu As String = "select * from isyeri where emlak_sahibi_tc = tcCombobox"
-        Dim componentsForIsyeri() As Control = {isyeri_tur, bolum_sayisi, aidat_ucret, isitma}
+        Dim componentsForIsyeri As List(Of Control) = New List(Of Control) From {isyeri_tur, bolum_sayisi, aidat_ucret, isitma}
         Dim componentsForAdres() As Control = {il_adi, ilce_adi, mahalle_adi, sokak_adi}
 
-        If DataGridView1.Rows.Count > 0 Then
-            DataGridView1.Columns(0).Visible = False
-            DataGridView1.Columns(1).Visible = False
+        If alan.Text.Length > 0 And AlanBuyuk.Text = "" Then
+            componentsForIsyeri.Add(alan)
+        ElseIf AlanBuyuk.Text.Length > 0 And alan.Text = "" Then
+            componentsForIsyeri.Add(AlanBuyuk)
+        ElseIf AlanBuyuk.Text.Length > 0 And alan.Text.Length > 0 Then
+            componentsForIsyeri.Add(alan)
+            componentsForIsyeri.Add(AlanBuyuk)
         End If
+
+        If kiraUcretiKucuk.Text.Length > 0 And kiraUcretiBuyuk.Text = "" Then
+            componentsForIsyeri.Add(kiraUcretiKucuk)
+        ElseIf kiraUcretiBuyuk.Text.Length > 0 And kiraUcretiKucuk.Text = "" Then
+            componentsForIsyeri.Add(kiraUcretiBuyuk)
+        ElseIf kiraUcretiBuyuk.Text.Length > 0 And kiraUcretiKucuk.Text.Length > 0 Then
+            componentsForIsyeri.Add(kiraUcretiKucuk)
+            componentsForIsyeri.Add(kiraUcretiBuyuk)
+        End If
+
+
+        If satisUcretiKucuk.Text.Length > 0 And satisUcretiBuyuk.Text = "" Then
+            componentsForIsyeri.Add(satisUcretiKucuk)
+        ElseIf satisUcretiBuyuk.Text.Length > 0 And satisUcretiKucuk.Text = "" Then
+            componentsForIsyeri.Add(satisUcretiBuyuk)
+        ElseIf satisUcretiBuyuk.Text.Length > 0 And satisUcretiKucuk.Text.Length > 0 Then
+            componentsForIsyeri.Add(satisUcretiKucuk)
+            componentsForIsyeri.Add(satisUcretiBuyuk)
+        End If
+
+
+
+        'If DataGridView1.Rows.Count > 0 Then
+        '    DataGridView1.Columns(0).Visible = False
+        '    DataGridView1.Columns(1).Visible = False
+        'End If
 
 
         DataGridView1.DataSource = isyeriSorgula(Me, componentsForIsyeri, componentsForAdres, emlak_sahibi_tc.SelectedValue.ToString())
@@ -34,6 +64,7 @@ Public Class isyeriListesi
         sqlIsyeriKolonlari.Add("Yapım Yılı", "yapim_yili")
         sqlIsyeriKolonlari.Add("Alan(m2)", "alan")
         sqlIsyeriKolonlari.Add("Açıklama", "aciklama")
+
 
         ' Adres tablosu için kolon adları ve gösterilecek adlarını eşleştiren sözlük
         sqlAdresKolonlari.Add("İl", "il_adi")
@@ -132,9 +163,6 @@ Public Class isyeriListesi
             desendenOncekiVirgulIndex = queryAdresString.LastIndexOf(","c, queryAdresString.IndexOf(arananDesen))
             queryAdresString = queryAdresString.Remove(desendenOncekiVirgulIndex, 1)
 
-
-            MessageBox.Show(queryIsyeriString)
-            MessageBox.Show(queryAdresString)
             queryIsyeriDizisi.Add(queryIsyeriString)
             queryAdresDizisi.Add(queryAdresString)
         Next
@@ -178,15 +206,31 @@ Public Class isyeriListesi
     Dim connectionString As String = "Data Source=BU2-C-000WY\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
     Dim connection As New SqlConnection(connectionString)
 
-    Function isyeriSorgula(form As Form, componentsForArsa() As Control, componentsForAdres() As Control, kisi_tc As String) As DataTable
-        Dim queryBirlesikString As String = "select isyeri.isyeri_tur AS 'İşyeri Türü', isyeri.bolum_sayisi AS 'Bölüm Sayısı', isyeri.aidat_ucret AS 'Aidat Ücreti', isyeri.isitma AS 'Isıtma', isyeri.yapim_yili AS 'Yapım Yılı', isyeri.alan AS 'Alan(m2)', isyeri.aciklama as 'Açıklama', emlak_sahibi_tc as 'Emlak Sahibi TC', adres.il_adi as İl, adres.ilce_adi as İlçe, adres.mahalle_adi as Mahalle, adres.sokak_adi as 'Sokak Adı', adres.bina_no as 'Bina Numarası', adres.daire_no as 'Daire Numarası', adres.acik_adres as 'Açık Adres', isyeri.isyeri_id AS 'isyeri.isyeri_id', adres.isyeri_id as 'adres.isyeri_id' from isyeri, adres where isyeri.emlak_sahibi_tc = adres.kisi_tc and isyeri.isyeri_id = adres.isyeri_id "
+    Function isyeriSorgula(form As Form, componentsForArsa As List(Of Control), componentsForAdres() As Control, kisi_tc As String) As DataTable
+        Dim queryBirlesikString As String = "select kisiler.adi as 'Adı', kisiler.soyadi as 'Soyadı', isyeri.kira_ucret as 'Kira Ücreti', isyeri.satis_ucret as 'Satış Fiyatı', isyeri.isyeri_tur AS 'İşyeri Türü', isyeri.bolum_sayisi AS 'Bölüm Sayısı', isyeri.aidat_ucret AS 'Aidat Ücreti', isyeri.isitma AS 'Isıtma', isyeri.yapim_yili AS 'Yapım Yılı', isyeri.alan AS 'Alan(m2)', isyeri.aciklama as 'Açıklama', emlak_sahibi_tc as 'Emlak Sahibi TC', adres.il_adi as İl, adres.ilce_adi as İlçe, adres.mahalle_adi as Mahalle, adres.sokak_adi as 'Sokak Adı', adres.bina_no as 'Bina Numarası', adres.daire_no as 'Daire Numarası', adres.acik_adres as 'Açık Adres', isyeri.isyeri_id AS 'isyeri.isyeri_id', adres.isyeri_id as 'adres.isyeri_id' from isyeri, adres, kisiler where isyeri.emlak_sahibi_tc = adres.kisi_tc and isyeri.isyeri_id = adres.isyeri_id and kisiler.kisi_tc = adres.kisi_tc and kisiler.kisi_tc = isyeri.emlak_sahibi_tc  "
         queryBirlesikString += "AND isyeri.emlak_sahibi_tc = '" + kisi_tc.ToString() + "' "
         For Each ctrl As Control In componentsForArsa
             If TypeOf ctrl Is TextBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, TextBox).Text) Then
                 Dim txtBox As TextBox = DirectCast(ctrl, TextBox)
-
-                queryBirlesikString &= "AND isyeri." & txtBox.Name & " LIKE N'%" & txtBox.Text & "%' "
-
+                If txtBox.Name = "alan" Then
+                    queryBirlesikString &= "AND isyeri." & txtBox.Name & " >= " & txtBox.Text & " "
+                ElseIf txtBox.Name = "AlanBuyuk" Then
+                    queryBirlesikString &= "AND isyeri." & "alan " & " <= " & txtBox.Text & " "
+                ElseIf txtBox.Name = "kiraUcretiKucuk" Then
+                    queryBirlesikString &= "AND isyeri." & "kira_ucret " & " >= " & txtBox.Text & " "
+                ElseIf txtBox.Name = "kiraUcretiBuyuk" Then
+                    queryBirlesikString &= "AND isyeri." & "kira_ucret " & " <= " & txtBox.Text & " "
+                ElseIf txtBox.Name = "satisUcretiKucuk" Then
+                    queryBirlesikString &= "AND isyeri." & "satis_ucret " & " >= " & txtBox.Text & " "
+                ElseIf txtBox.Name = "satisUcretiBuyuk" Then
+                    queryBirlesikString &= "AND isyeri." & "satis_ucret " & " <= " & txtBox.Text & " "
+                ElseIf txtBox.Name = "kaks_degeri" Then
+                    queryBirlesikString &= "AND isyeri." & txtBox.Name & " = " & txtBox.Text.Replace(",", ".") & " "
+                ElseIf txtBox.Name = "gabari_degeri" Then
+                    queryBirlesikString &= "AND isyeri." & txtBox.Name & " = " & txtBox.Text.Replace(",", ".") & " "
+                Else
+                    queryBirlesikString &= "AND isyeri." & txtBox.Name & " LIKE N'%" & txtBox.Text & "%' "
+                End If
             End If
 
             If TypeOf ctrl Is ComboBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, ComboBox).Text) Then
@@ -231,7 +275,6 @@ Public Class isyeriListesi
         If dtIsyeriVeAdres.Rows.Count > 0 Then
             Return dtIsyeriVeAdres
         Else
-            MessageBox.Show(queryBirlesikString)
             MessageBox.Show("Kayıt bulunamadı.")
             Return Nothing
         End If
