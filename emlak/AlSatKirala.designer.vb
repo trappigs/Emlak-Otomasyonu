@@ -62,7 +62,7 @@ Partial Class AlSatKirala
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(291, 37)
+        Me.Label1.Location = New System.Drawing.Point(315, 37)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(32, 16)
         Me.Label1.TabIndex = 142
@@ -71,7 +71,7 @@ Partial Class AlSatKirala
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(161, 36)
+        Me.Label2.Location = New System.Drawing.Point(185, 36)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 16)
         Me.Label2.TabIndex = 144
@@ -80,7 +80,7 @@ Partial Class AlSatKirala
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(112, 28)
+        Me.Label7.Location = New System.Drawing.Point(118, 22)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(39, 16)
         Me.Label7.TabIndex = 153
@@ -89,10 +89,10 @@ Partial Class AlSatKirala
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(34, 61)
+        Me.RadioButton2.Location = New System.Drawing.Point(40, 55)
         Me.RadioButton2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(89, 20)
+        Me.RadioButton2.Size = New System.Drawing.Size(92, 20)
         Me.RadioButton2.TabIndex = 154
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "Satın Alma"
@@ -101,10 +101,10 @@ Partial Class AlSatKirala
         'RadioButton3
         '
         Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(160, 61)
+        Me.RadioButton3.Location = New System.Drawing.Point(166, 55)
         Me.RadioButton3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(78, 20)
+        Me.RadioButton3.Size = New System.Drawing.Size(81, 20)
         Me.RadioButton3.TabIndex = 155
         Me.RadioButton3.TabStop = True
         Me.RadioButton3.Text = "Kiralama"
@@ -113,19 +113,19 @@ Partial Class AlSatKirala
         'saticiComboBox
         '
         Me.saticiComboBox.FormattingEnabled = True
-        Me.saticiComboBox.Location = New System.Drawing.Point(161, 55)
+        Me.saticiComboBox.Location = New System.Drawing.Point(185, 55)
         Me.saticiComboBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.saticiComboBox.Name = "saticiComboBox"
-        Me.saticiComboBox.Size = New System.Drawing.Size(83, 24)
+        Me.saticiComboBox.Size = New System.Drawing.Size(143, 24)
         Me.saticiComboBox.TabIndex = 158
         '
         'aliciComboBox
         '
         Me.aliciComboBox.FormattingEnabled = True
-        Me.aliciComboBox.Location = New System.Drawing.Point(291, 55)
+        Me.aliciComboBox.Location = New System.Drawing.Point(348, 55)
         Me.aliciComboBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.aliciComboBox.Name = "aliciComboBox"
-        Me.aliciComboBox.Size = New System.Drawing.Size(83, 24)
+        Me.aliciComboBox.Size = New System.Drawing.Size(142, 24)
         Me.aliciComboBox.TabIndex = 157
         '
         'emlakciComboBox
@@ -134,7 +134,7 @@ Partial Class AlSatKirala
         Me.emlakciComboBox.Location = New System.Drawing.Point(39, 55)
         Me.emlakciComboBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.emlakciComboBox.Name = "emlakciComboBox"
-        Me.emlakciComboBox.Size = New System.Drawing.Size(83, 24)
+        Me.emlakciComboBox.Size = New System.Drawing.Size(130, 24)
         Me.emlakciComboBox.TabIndex = 156
         '
         'Button1
@@ -151,7 +151,7 @@ Partial Class AlSatKirala
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(453, 34)
+        Me.DataGridView1.Location = New System.Drawing.Point(497, 34)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersWidth = 51
@@ -166,7 +166,7 @@ Partial Class AlSatKirala
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Location = New System.Drawing.Point(64, 100)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(276, 113)
+        Me.GroupBox1.Size = New System.Drawing.Size(276, 99)
         Me.GroupBox1.TabIndex = 161
         Me.GroupBox1.TabStop = False
         '
@@ -185,10 +185,10 @@ Partial Class AlSatKirala
         'konutRadioButton
         '
         Me.konutRadioButton.AutoSize = True
-        Me.konutRadioButton.Location = New System.Drawing.Point(180, 61)
+        Me.konutRadioButton.Location = New System.Drawing.Point(186, 62)
         Me.konutRadioButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.konutRadioButton.Name = "konutRadioButton"
-        Me.konutRadioButton.Size = New System.Drawing.Size(58, 20)
+        Me.konutRadioButton.Size = New System.Drawing.Size(61, 20)
         Me.konutRadioButton.TabIndex = 155
         Me.konutRadioButton.TabStop = True
         Me.konutRadioButton.Text = "Konut"
@@ -197,10 +197,10 @@ Partial Class AlSatKirala
         'isyeriRadioButton
         '
         Me.isyeriRadioButton.AutoSize = True
-        Me.isyeriRadioButton.Location = New System.Drawing.Point(14, 61)
+        Me.isyeriRadioButton.Location = New System.Drawing.Point(20, 62)
         Me.isyeriRadioButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.isyeriRadioButton.Name = "isyeriRadioButton"
-        Me.isyeriRadioButton.Size = New System.Drawing.Size(57, 20)
+        Me.isyeriRadioButton.Size = New System.Drawing.Size(60, 20)
         Me.isyeriRadioButton.TabIndex = 152
         Me.isyeriRadioButton.TabStop = True
         Me.isyeriRadioButton.Text = "İşyeri"
@@ -209,7 +209,7 @@ Partial Class AlSatKirala
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(94, 28)
+        Me.Label4.Location = New System.Drawing.Point(100, 27)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(75, 16)
         Me.Label4.TabIndex = 153
@@ -218,10 +218,10 @@ Partial Class AlSatKirala
         'arsaRadioButton
         '
         Me.arsaRadioButton.AutoSize = True
-        Me.arsaRadioButton.Location = New System.Drawing.Point(97, 61)
+        Me.arsaRadioButton.Location = New System.Drawing.Point(103, 62)
         Me.arsaRadioButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.arsaRadioButton.Name = "arsaRadioButton"
-        Me.arsaRadioButton.Size = New System.Drawing.Size(53, 20)
+        Me.arsaRadioButton.Size = New System.Drawing.Size(56, 20)
         Me.arsaRadioButton.TabIndex = 154
         Me.arsaRadioButton.TabStop = True
         Me.arsaRadioButton.Text = "Arsa"
@@ -280,7 +280,7 @@ Partial Class AlSatKirala
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ClientSize = New System.Drawing.Size(918, 514)
+        Me.ClientSize = New System.Drawing.Size(890, 514)
         Me.Controls.Add(Me.depozito_ucreti)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.satis_ucreti)

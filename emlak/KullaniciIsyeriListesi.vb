@@ -1,7 +1,6 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Windows.Forms
 
-Public Class isyeriListesi
+Public Class KullaniciIsyeriListesi
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'bu sorguyu kullanacağım
         Dim sorgu As String = "select * from isyeri where emlak_sahibi_tc = tcCombobox"
@@ -45,7 +44,6 @@ Public Class isyeriListesi
 
 
         DataGridView1.DataSource = isyeriSorgula(Me, componentsForIsyeri, componentsForAdres, emlak_sahibi_tc.SelectedValue.ToString())
-
     End Sub
 
     Dim queryIsyeriDizisi As New List(Of String)()
@@ -170,7 +168,6 @@ Public Class isyeriListesi
     End Sub
 
 
-
     Sub veriDoldur(query As String, adSutun As String, idSutun As String, tabloAdi As String, ByVal comboBox As ComboBox)
 
         ' Veritabanı bağlantısı oluştur
@@ -190,7 +187,7 @@ Public Class isyeriListesi
         End Using
     End Sub
 
-    Private Sub isyeriListesi_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub KullaniciIsyeriListesi_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         veriDoldur("select il_adi, il_id from iller", "il_adi", "il_id", "iller", il_adi)
         veriDoldur("select tur_aciklamasi, isyeri_tur_id from isyeri_turleri", "tur_aciklamasi", "isyeri_tur_id", "isyeri_turleri", isyeri_tur)
         veriDoldur("select Distinct CONCAT(adi, ' ', soyadi) as TamAd, kisi_tc from kisiler, isyeri where kisiler.kisi_tc = isyeri.emlak_sahibi_tc", "TamAd", "kisi_tc", "kisiler", emlak_sahibi_tc)
@@ -200,7 +197,6 @@ Public Class isyeriListesi
         ilce_adi.Text = ""
         mahalle_adi.Text = ""
         emlak_sahibi_tc.Text = ""
-
     End Sub
 
     Dim connectionString As String = "Data Source=BU2-C-000WY\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
@@ -319,37 +315,6 @@ Public Class isyeriListesi
 
     End Sub
 
-    Private Sub isyeri_tur_KeyPress(sender As Object, e As KeyPressEventArgs) Handles isyeri_tur.KeyPress
-        If Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
-            ' Diğer tuş vuruşlarını engelle
-            e.Handled = True
-        End If
-    End Sub
 
-    Private Sub isitma_KeyPress(sender As Object, e As KeyPressEventArgs) Handles isitma.KeyPress
-        If Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
-            ' Diğer tuş vuruşlarını engelle
-            e.Handled = True
-        End If
-    End Sub
 
-    Private Sub bolum_sayisi_KeyPress(sender As Object, e As KeyPressEventArgs) Handles bolum_sayisi.KeyPress
-        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
-            ' Girilen karakter bir sayı değilse ve kontrol karakteri de değilse
-            ' Tuş vuruşunu reddetmek için Handle özelliğini true olarak ayarla
-            e.Handled = True
-        End If
-
-        If sender.TextLength >= 3 AndAlso Not Char.IsControl(e.KeyChar) Then
-            e.Handled = True
-        End If
-    End Sub
-
-    Private Sub aidat_ucret_KeyPress(sender As Object, e As KeyPressEventArgs) Handles aidat_ucret.KeyPress
-        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
-            ' Girilen karakter bir sayı değilse ve kontrol karakteri de değilse
-            ' Tuş vuruşunu reddetmek için Handle özelliğini true olarak ayarla
-            e.Handled = True
-        End If
-    End Sub
 End Class

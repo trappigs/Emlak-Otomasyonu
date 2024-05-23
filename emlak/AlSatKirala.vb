@@ -3,9 +3,9 @@ Imports System.Windows.Forms
 
 Public Class AlSatKirala
     Private Sub AlSatKirala_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        veriDoldur("select CONCAT(adi, ' ', soyadi) as TamAd, kisi_tc from kisiler where kisi_tipi=N'Emlakçı'", "TamAd", "kisi_tc", "kisiler", emlakciComboBox)
-        veriDoldur("select CONCAT(adi, ' ', soyadi) as TamAd, kisi_tc from kisiler where kisi_tipi=N'Müşteri'", "TamAd", "kisi_tc", "kisiler", aliciComboBox)
-        veriDoldur("select CONCAT(adi, ' ', soyadi) as TamAd, kisi_tc from kisiler where kisi_tipi=N'Müşteri'", "TamAd", "kisi_tc", "kisiler", saticiComboBox)
+        veriDoldur("select CONCAT(adi, ' ', soyadi) as TamAd, kisi_tc from kisiler where kisi_tipi=N'Emlakçı' GROUP BY adi, soyadi, kisi_tc", "TamAd", "kisi_tc", "kisiler", emlakciComboBox)
+        veriDoldur("select CONCAT(adi, ' ', soyadi) as TamAd, kisi_tc from kisiler where kisi_tipi=N'Müşteri' GROUP BY adi, soyadi, kisi_tc", "TamAd", "kisi_tc", "kisiler", aliciComboBox)
+        veriDoldur("select CONCAT(adi, ' ', soyadi) as TamAd, kisi_tc from kisiler where kisi_tipi=N'Müşteri' GROUP BY adi, soyadi, kisi_tc", "TamAd", "kisi_tc", "kisiler", saticiComboBox)
 
 
     End Sub
@@ -13,6 +13,7 @@ Public Class AlSatKirala
 
     Dim connectionString As String = "Data Source=BU2-C-000WY\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
     Dim connection As New SqlConnection(connectionString)
+
 
     Sub veriDoldur(query As String, adSutun As String, idSutun As String, tabloAdi As String, ByVal comboBox As ComboBox)
         ' ComboBox'ı doldurmak için kullanılacak SQL sorgusu
@@ -23,7 +24,6 @@ Public Class AlSatKirala
             Using adapter As New SqlDataAdapter(query, connection)
                 ' DataSet oluştur
                 Dim dataSet As New DataSet()
-
                 ' Verileri doldur
                 adapter.Fill(dataSet, tabloAdi)
 
@@ -33,16 +33,14 @@ Public Class AlSatKirala
                 comboBox.DataSource = dataSet.Tables(tabloAdi)
             End Using
         End Using
-
     End Sub
+
+
 
 
     Sub MySub(tablo_adi As String, emlak_tipi_id As String, alici_tc As String, satici_tc As String, emlak_id As String)
         Dim ss2 As String = "update adres set kisi_tc = " + alici_tc + " where " + alici_tc + " = " + satici_tc + "and " + emlak_tipi_id + " = " + emlak_id
         Dim ss As String = "update arsa set emlak_sahibi_tc = alici_tc where tc = satici_tc and arsa_id = selectedrow.arsa_id"
-
-
-
 
     End Sub
 
@@ -57,37 +55,28 @@ Public Class AlSatKirala
 
         If DataGridView1.Rows.Count > 0 And DataGridView1.SelectedRows.Count > 0 Then
             Dim selectedRow As DataGridViewRow = DataGridView1.SelectedRows(0)
-
+            Dim emlakTuru As String = ""
             If islem = "satis" Then
                 If Not aliciComboBox.Text = saticiComboBox.Text Then
                     If isyeriRadioButton.Checked Then
-                        sqlAlSatKira.Satis(aliciComboBox, saticiComboBox, emlakciComboBox, "isyeri", satis_ucreti.Text, selectedRow.Cells(0).ToString())
+                        emlakTuru = "isyeri"
                     ElseIf arsaRadioButton.Checked Then
-                        sqlAlSatKira.Satis(aliciComboBox, saticiComboBox, emlakciComboBox, "arsa", satis_ucreti.Text, selectedRow.Cells(0).ToString())
+                        emlakTuru = "arsa"
                     ElseIf konutRadioButton.Checked Then
-                        sqlAlSatKira.Satis(aliciComboBox, saticiComboBox, emlakciComboBox, "konut", satis_ucreti.Text, selectedRow.Cells(0).ToString())
+                        emlakTuru = "konut"
+                    End If
+                    Dim donus As Boolean = sqlAlSatKira.Satis(aliciComboBox, saticiComboBox, emlakciComboBox, emlakTuru, satis_ucreti.Text, 0, 0, selectedRow.Cells(0).Value.ToString())
+                    If donus Then
+                        DataGridView1.Rows.RemoveAt(selectedRow.Index)
                     End If
                 Else
                     MessageBox.Show("Alıcıyla satıcı aynı olamaz!")
                 End If
-            ElseIf islem = "kira" Then
-                If Not aliciComboBox.Text = saticiComboBox.Text Then
-                    If isyeriRadioButton.Checked Then
-                        sqlAlSatKira.Kiralama(aliciComboBox, saticiComboBox, emlakciComboBox, "isyeri", kira_ucreti.Text, depozito_ucreti.Text, selectedRow.Cells(0).ToString())
-                    ElseIf arsaRadioButton.Checked Then
-                        sqlAlSatKira.Kiralama(aliciComboBox, saticiComboBox, emlakciComboBox, "arsa", kira_ucreti.Text, depozito_ucreti.Text, selectedRow.Cells(0).ToString())
-                    ElseIf konutRadioButton.Checked Then
-                        sqlAlSatKira.Kiralama(aliciComboBox, saticiComboBox, emlakciComboBox, "konut", kira_ucreti.Text, depozito_ucreti.Text, selectedRow.Cells(0).ToString())
-                    End If
-                Else
-                    MessageBox.Show("Kiracıyla kiracı aynı olamaz!")
-                End If
             Else
                 MessageBox.Show("İşlem seçmediniz!")
             End If
-
         Else
-            MessageBox.Show("Tabloda kayıt yok!")
+            MessageBox.Show("Tabloda kayıt yok veya işlemi yapılacak satırı seçmediniz!")
         End If
     End Sub
 
@@ -115,10 +104,9 @@ Public Class AlSatKirala
 
 
     Function KisiSorgula(tablo_adi As String, emlak_tipi_id As String) As DataTable
-        Dim queryAlSat As String = "select * from " + tablo_adi + ", adres where adres.kisi_tc = " + tablo_adi + ".emlak_sahibi_tc and " + tablo_adi + "." + emlak_tipi_id + " = adres." + emlak_tipi_id
+        Dim queryAlSat As String = "select * from " + tablo_adi + ", adres where adres.kisi_tc = " + tablo_adi + ".emlak_sahibi_tc and " + tablo_adi + "." + emlak_tipi_id + " = adres." + emlak_tipi_id + " and aktiflik = 1"
 
         Dim dtKisi As New DataTable()
-
         Using connection As New SqlConnection(connectionString)
             connection.Open()
             Try
@@ -142,45 +130,97 @@ Public Class AlSatKirala
             MessageBox.Show("Kayıt bulunamadı.")
             Return Nothing
         End If
-
     End Function
 
-    Private Sub RadioButton5_CheckedChanged(sender As Object, e As EventArgs) Handles isyeriRadioButton.CheckedChanged
-        DataGridView1.DataSource = Nothing
-        If isyeriRadioButton.Checked Then
-            DataGridView1.DataSource = KisiSorgula("isyeri", "isyeri_id")
-            If DataGridView1.Columns(0).HeaderText = "arsa_id" Or DataGridView1.Columns(0).HeaderText = "konut_id" Then
-                DataGridView1.Columns(0).Visible = False
-            End If
-            If DataGridView1.Columns(1).HeaderText = "arsa_id" Or DataGridView1.Columns(1).HeaderText = "konut_id" Then
-                DataGridView1.Columns(1).Visible = False
-            End If
-        End If
-    End Sub
+    Private Sub isyeriRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles isyeriRadioButton.CheckedChanged
+        Try
 
-    Private Sub RadioButton6_CheckedChanged(sender As Object, e As EventArgs) Handles arsaRadioButton.CheckedChanged
-        DataGridView1.DataSource = Nothing
-        If arsaRadioButton.Checked Then
-            DataGridView1.DataSource = KisiSorgula("arsa", "arsa_id")
-            If DataGridView1.Columns(0).HeaderText = "isyeri_id" Or DataGridView1.Columns(0).HeaderText = "konut_id" Then
-                DataGridView1.Columns(0).Visible = False
-            End If
-            If DataGridView1.Columns(1).HeaderText = "isyeri_id" Or DataGridView1.Columns(1).HeaderText = "konut_id" Then
-                DataGridView1.Columns(1).Visible = False
-            End If
-        End If
-    End Sub
-
-    Private Sub RadioButton4_CheckedChanged(sender As Object, e As EventArgs) Handles konutRadioButton.CheckedChanged
-        If konutRadioButton.Checked Then
             DataGridView1.DataSource = Nothing
-            DataGridView1.DataSource = KisiSorgula("konutlar", "konut_id")
-            If DataGridView1.Columns(0).HeaderText = "isyeri_id" Or DataGridView1.Columns(0).HeaderText = "arsa_id" Then
-                DataGridView1.Columns(0).Visible = False
+            If isyeriRadioButton.Checked Then
+                DataGridView1.DataSource = KisiSorgula("isyeri", "isyeri_id")
+                If DataGridView1.Columns("isyeri_id1") IsNot Nothing Then
+                    DataGridView1.Columns("isyeri_id1").Visible = False
+                    DataGridView1.Columns("arsa_id").Visible = False
+                    DataGridView1.Columns("konut_id").Visible = False
+                    DataGridView1.Columns("emlak_sahibi_tc").Visible = False
+                    DataGridView1.Columns("aktiflik").Visible = False
+                End If
+                'If DataGridView1.Columns(0).HeaderText = "arsa_id" Or DataGridView1.Columns(0).HeaderText = "konut_id" Then
+                '    DataGridView1.Columns(0).Visible = False
+                'End If
+                'If DataGridView1.Columns(1).HeaderText = "arsa_id" Or DataGridView1.Columns(1).HeaderText = "konut_id" Then
+                '    DataGridView1.Columns(1).Visible = False
+                'End If
             End If
-            If DataGridView1.Columns(1).HeaderText = "isyeri_id" Or DataGridView1.Columns(1).HeaderText = "arsa_id" Then
-                DataGridView1.Columns(1).Visible = False
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub arsaRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles arsaRadioButton.CheckedChanged
+        Try
+            DataGridView1.DataSource = Nothing
+            If arsaRadioButton.Checked Then
+                DataGridView1.DataSource = KisiSorgula("arsa", "arsa_id")
+                If DataGridView1.Columns("arsa_id1") IsNot Nothing Then
+                    DataGridView1.Columns("arsa_id1").Visible = False
+                    DataGridView1.Columns("isyeri_id").Visible = False
+                    DataGridView1.Columns("konut_id").Visible = False
+                    DataGridView1.Columns("aktiflik").Visible = False
+                    DataGridView1.Columns("emlak_sahibi_tc").Visible = False
+                End If
+                'DataGridView1.Columns("konut_id1").Visible = False
+                'If DataGridView1.Columns(0).HeaderText = "isyeri_id" Or DataGridView1.Columns(0).HeaderText = "konut_id" Then
+                '    DataGridView1.Columns(0).Visible = False
+                'End If
+                'If DataGridView1.Columns(1).HeaderText = "isyeri_id" Or DataGridView1.Columns(1).HeaderText = "konut_id" Then
+                '    DataGridView1.Columns(1).Visible = False
+                'End If
             End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub konutRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles konutRadioButton.CheckedChanged
+        Try
+            If konutRadioButton.Checked Then
+                DataGridView1.DataSource = Nothing
+                DataGridView1.DataSource = KisiSorgula("konutlar", "konut_id")
+                If DataGridView1.Columns("konut_id1") IsNot Nothing Then
+                    DataGridView1.Columns("konut_id1").Visible = False
+                    DataGridView1.Columns("arsa_id").Visible = False
+                    DataGridView1.Columns("isyeri_id").Visible = False
+                    DataGridView1.Columns("emlak_sahibi_tc").Visible = False
+                    DataGridView1.Columns("aktiflik").Visible = False
+                End If
+
+                'If DataGridView1.Columns(0).HeaderText = "isyeri_id" Or DataGridView1.Columns(0).HeaderText = "arsa_id" Then
+                '    DataGridView1.Columns(0).Visible = False
+                'End If
+                'If DataGridView1.Columns(1).HeaderText = "isyeri_id" Or DataGridView1.Columns(1).HeaderText = "arsa_id" Then
+                '    DataGridView1.Columns(1).Visible = False
+                'End If
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Dim emlakciTc As String
+    Dim aliciTC As String
+    Dim saticiTC As String
+
+    Private Sub aliciComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles aliciComboBox.SelectedIndexChanged
+        If aliciComboBox.SelectedItem IsNot Nothing AndAlso aliciComboBox.SelectedValue.ToString() = saticiComboBox.SelectedValue?.ToString() Then
+            aliciComboBox.SelectedIndex = -1
         End If
     End Sub
+
+    Private Sub saticiComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles saticiComboBox.SelectedIndexChanged
+        If saticiComboBox.SelectedItem IsNot Nothing AndAlso saticiComboBox.SelectedValue.ToString() = aliciComboBox.SelectedValue?.ToString() Then
+            saticiComboBox.SelectedIndex = -1
+        End If
+    End Sub
+
 End Class

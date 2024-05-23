@@ -208,7 +208,7 @@ Partial Class ArsaListesi
         'gabari_degeri
         '
         Me.gabari_degeri.FormattingEnabled = True
-        Me.gabari_degeri.Location = New System.Drawing.Point(194, 95)
+        Me.gabari_degeri.Location = New System.Drawing.Point(196, 97)
         Me.gabari_degeri.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.gabari_degeri.Name = "gabari_degeri"
         Me.gabari_degeri.Size = New System.Drawing.Size(83, 24)

@@ -73,10 +73,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlimSatimYonetim.Designer.vb">
+      <DependentUpon>AlimSatimYonetim.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AlimSatimYonetim.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AlSatKirala.designer.vb">
       <DependentUpon>AlSatKirala.vb</DependentUpon>
     </Compile>
     <Compile Include="AlSatKirala.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlSatKiralaAnaMenu.Designer.vb">
+      <DependentUpon>AlSatKiralaAnaMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AlSatKiralaAnaMenu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ArsaEkle.designer.vb">
@@ -89,6 +101,12 @@
       <DependentUpon>ArsaListesi.vb</DependentUpon>
     </Compile>
     <Compile Include="ArsaListesi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GirisEkrani.Designer.vb">
+      <DependentUpon>GirisEkrani.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GirisEkrani.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="KisiEkle.designer.vb">
@@ -140,10 +158,23 @@
     <Compile Include="KullaniciArsaListesi.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="KullaniciIsyeriListesi.Designer.vb">
+      <DependentUpon>KullaniciIsyeriListesi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KullaniciIsyeriListesi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KullaniciKonutListesi.Designer.vb">
+      <DependentUpon>KullaniciKonutListesi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KullaniciKonutListesi.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -159,14 +190,23 @@
     <Compile Include="VeriEkle.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AlimSatimYonetim.resx">
+      <DependentUpon>AlimSatimYonetim.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AlSatKirala.resx">
       <DependentUpon>AlSatKirala.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlSatKiralaAnaMenu.resx">
+      <DependentUpon>AlSatKiralaAnaMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ArsaEkle.resx">
       <DependentUpon>ArsaEkle.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ArsaListesi.resx">
       <DependentUpon>ArsaListesi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GirisEkrani.resx">
+      <DependentUpon>GirisEkrani.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KisiEkle.resx">
       <DependentUpon>KisiEkle.vb</DependentUpon>
@@ -191,6 +231,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KullaniciArsaListesi.resx">
       <DependentUpon>KullaniciArsaListesi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KullaniciIsyeriListesi.resx">
+      <DependentUpon>KullaniciIsyeriListesi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KullaniciKonutListesi.resx">
+      <DependentUpon>KullaniciKonutListesi.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
