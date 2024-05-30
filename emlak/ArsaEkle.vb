@@ -16,7 +16,7 @@ Public Class ArsaEkle
     Dim lastAddressId As Integer
 
     Function ArsaEkle(form As Form, componentsForArsa() As Control, componentsForAdres() As Control) As Boolean
-        Dim queryArsaString As String = "INSERT INTO arsa (imar_cesidi, ada_no, parsel_no, kaks_degeri, gabari_degeri, tapu_durumu, aciklama, alan, emlak_aktiflik_bilgisi, emlak_sahibi_tc) VALUES (@imar, @adaNo, @parselNo, @kaks, @gabari, @tapu, @aciklama, @alan, 1, @tc);" & "SELECT SCOPE_IDENTITY()"
+        Dim queryArsaString As String = "INSERT INTO arsa (imar_cesidi, ada_no, parsel_no, kaks_degeri, gabari_degeri, tapu_durumu, aciklama, alan, emlak_aktiflik_bilgisi, emlak_sahibi_tc, aktiflik) VALUES (@imar, @adaNo, @parselNo, @kaks, @gabari, @tapu, @aciklama, @alan, 1, @tc, 1);" & "SELECT SCOPE_IDENTITY()"
         Dim queryAdresString As String = "INSERT INTO adres (il_adi, ilce_adi, mahalle_adi, sokak_adi, bina_no, daire_no, acik_adres, kisi_tc, arsa_id) VALUES (@il, @ilce, @mahalle, @sokak, @bina, @daire, @acikAdres, @tc_kimlik, @arsa_id)"
 
 

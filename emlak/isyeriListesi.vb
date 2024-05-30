@@ -35,7 +35,7 @@ Public Class isyeriListesi
             componentsForIsyeri.Add(satisUcretiKucuk)
             componentsForIsyeri.Add(satisUcretiBuyuk)
         End If
-
+        componentsForIsyeri.Add(emlak_sahibi_tc)
 
 
         'If DataGridView1.Rows.Count > 0 Then
@@ -44,7 +44,7 @@ Public Class isyeriListesi
         'End If
 
 
-        DataGridView1.DataSource = isyeriSorgula(Me, componentsForIsyeri, componentsForAdres, emlak_sahibi_tc.SelectedValue.ToString())
+        DataGridView1.DataSource = isyeriSorgula(Me, componentsForIsyeri, componentsForAdres)
 
     End Sub
 
@@ -205,6 +205,83 @@ Public Class isyeriListesi
 
     Dim connectionString As String = "Data Source=BU2-C-000WY\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
     Dim connection As New SqlConnection(connectionString)
+
+    Function isyeriSorgula(form As Form, componentsForArsa As List(Of Control), componentsForAdres() As Control) As DataTable
+        Dim queryBirlesikString As String = "select kisiler.adi as 'Adı', kisiler.soyadi as 'Soyadı', isyeri.kira_ucret as 'Kira Ücreti', isyeri.satis_ucret as 'Satış Fiyatı', isyeri.isyeri_tur AS 'İşyeri Türü', isyeri.bolum_sayisi AS 'Bölüm Sayısı', isyeri.aidat_ucret AS 'Aidat Ücreti', isyeri.isitma AS 'Isıtma', isyeri.yapim_yili AS 'Yapım Yılı', isyeri.alan AS 'Alan(m2)', isyeri.aciklama as 'Açıklama', emlak_sahibi_tc as 'Emlak Sahibi TC', adres.il_adi as İl, adres.ilce_adi as İlçe, adres.mahalle_adi as Mahalle, adres.sokak_adi as 'Sokak Adı', adres.bina_no as 'Bina Numarası', adres.daire_no as 'Daire Numarası', adres.acik_adres as 'Açık Adres', isyeri.isyeri_id AS 'isyeri.isyeri_id', adres.isyeri_id as 'adres.isyeri_id' from isyeri, adres, kisiler where isyeri.emlak_sahibi_tc = adres.kisi_tc and isyeri.isyeri_id = adres.isyeri_id and kisiler.kisi_tc = adres.kisi_tc and kisiler.kisi_tc = isyeri.emlak_sahibi_tc  "
+
+        For Each ctrl As Control In componentsForArsa
+            If TypeOf ctrl Is TextBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, TextBox).Text) Then
+                Dim txtBox As TextBox = DirectCast(ctrl, TextBox)
+                Dim txtBoxName As String = txtBox.Name
+
+                Select Case txtBoxName
+                    Case "alan"
+                        queryBirlesikString &= "AND isyeri." & txtBox.Name & " >= " & txtBox.Text & " "
+                    Case "AlanBuyuk"
+                        queryBirlesikString &= "AND isyeri." & "alan " & " <= " & txtBox.Text & " "
+                    Case "kiraUcretiKucuk"
+                        queryBirlesikString &= "AND isyeri." & "kira_ucret " & " >= " & txtBox.Text & " "
+                    Case "kiraUcretiBuyuk"
+                        queryBirlesikString &= "AND isyeri." & "kira_ucret " & " <= " & txtBox.Text & " "
+                    Case "satisUcretiKucuk"
+                        queryBirlesikString &= "AND isyeri." & "satis_ucret " & " >= " & txtBox.Text & " "
+                    Case "satisUcretiBuyuk"
+                        queryBirlesikString &= "AND isyeri." & "satis_ucret " & " <= " & txtBox.Text & " "
+                    Case "kaks_degeri"
+                        queryBirlesikString &= "AND isyeri." & txtBox.Name & " = " & txtBox.Text.Replace(",", ".") & " "
+                    Case "gabari_degeri"
+                        queryBirlesikString &= "AND isyeri." & txtBox.Name & " = " & txtBox.Text.Replace(",", ".") & " "
+                    Case Else
+                        queryBirlesikString &= "AND isyeri." & txtBox.Name & " LIKE N'%" & txtBox.Text & "%' "
+                End Select
+            End If
+
+            If TypeOf ctrl Is ComboBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, ComboBox).Text) Then
+                Dim cmbBox As ComboBox = DirectCast(ctrl, ComboBox)
+                queryBirlesikString &= "AND isyeri." & cmbBox.Name & " = N'" & cmbBox.Text & "' "
+            End If
+        Next
+
+
+        For Each ctrl As Control In componentsForAdres
+            If TypeOf ctrl Is TextBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, TextBox).Text) Then
+                Dim txtBox As TextBox = DirectCast(ctrl, TextBox)
+
+                queryBirlesikString &= "AND adres." & txtBox.Name & " LIKE N'" & txtBox.Text & "' "
+            End If
+
+            If TypeOf ctrl Is ComboBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, ComboBox).Text) Then
+                Dim cmbBox As ComboBox = DirectCast(ctrl, ComboBox)
+                queryBirlesikString &= "AND adres." & cmbBox.Name & " LIKE N'" & cmbBox.Text & "' "
+            End If
+        Next
+
+
+        Dim dtIsyeriVeAdres As New DataTable()
+
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
+            Try
+                Using commandKisi As New SqlCommand(queryBirlesikString, connection)
+                    Using reader As SqlDataReader = commandKisi.ExecuteReader()
+                        ' DataGridView'e sonuçları aktarın
+                        dtIsyeriVeAdres.Load(reader)
+                    End Using
+                End Using
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End Using
+
+        If dtIsyeriVeAdres.Rows.Count > 0 Then
+            Return dtIsyeriVeAdres
+        Else
+            MessageBox.Show("Kayıt bulunamadı.")
+            Return Nothing
+        End If
+    End Function
+
 
     Function isyeriSorgula(form As Form, componentsForArsa As List(Of Control), componentsForAdres() As Control, kisi_tc As String) As DataTable
         Dim queryBirlesikString As String = "select kisiler.adi as 'Adı', kisiler.soyadi as 'Soyadı', isyeri.kira_ucret as 'Kira Ücreti', isyeri.satis_ucret as 'Satış Fiyatı', isyeri.isyeri_tur AS 'İşyeri Türü', isyeri.bolum_sayisi AS 'Bölüm Sayısı', isyeri.aidat_ucret AS 'Aidat Ücreti', isyeri.isitma AS 'Isıtma', isyeri.yapim_yili AS 'Yapım Yılı', isyeri.alan AS 'Alan(m2)', isyeri.aciklama as 'Açıklama', emlak_sahibi_tc as 'Emlak Sahibi TC', adres.il_adi as İl, adres.ilce_adi as İlçe, adres.mahalle_adi as Mahalle, adres.sokak_adi as 'Sokak Adı', adres.bina_no as 'Bina Numarası', adres.daire_no as 'Daire Numarası', adres.acik_adres as 'Açık Adres', isyeri.isyeri_id AS 'isyeri.isyeri_id', adres.isyeri_id as 'adres.isyeri_id' from isyeri, adres, kisiler where isyeri.emlak_sahibi_tc = adres.kisi_tc and isyeri.isyeri_id = adres.isyeri_id and kisiler.kisi_tc = adres.kisi_tc and kisiler.kisi_tc = isyeri.emlak_sahibi_tc  "

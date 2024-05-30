@@ -103,6 +103,12 @@
     <Compile Include="ArsaListesi.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EmlakciGirisForm.Designer.vb">
+      <DependentUpon>EmlakciGirisForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EmlakciGirisForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GirisEkrani.Designer.vb">
       <DependentUpon>GirisEkrani.vb</DependentUpon>
     </Compile>
@@ -158,16 +164,40 @@
     <Compile Include="KullaniciArsaListesi.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="KullaniciGirisForm.Designer.vb">
+      <DependentUpon>KullaniciGirisForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KullaniciGirisForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="KullaniciIsyeriListesi.Designer.vb">
       <DependentUpon>KullaniciIsyeriListesi.vb</DependentUpon>
     </Compile>
     <Compile Include="KullaniciIsyeriListesi.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="KullaniciKayit.Designer.vb">
+      <DependentUpon>KullaniciKayit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KullaniciKayit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="KullaniciKonutListesi.Designer.vb">
       <DependentUpon>KullaniciKonutListesi.vb</DependentUpon>
     </Compile>
     <Compile Include="KullaniciKonutListesi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusteriKisiselBilgi.Designer.vb">
+      <DependentUpon>MusteriKisiselBilgi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MusteriKisiselBilgi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusteriYonetim.Designer.vb">
+      <DependentUpon>MusteriYonetim.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MusteriYonetim.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -187,6 +217,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="sqlAlSatKira.vb" />
+    <Compile Include="sqlAuth.vb" />
     <Compile Include="VeriEkle.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ArsaListesi.resx">
       <DependentUpon>ArsaListesi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmlakciGirisForm.resx">
+      <DependentUpon>EmlakciGirisForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GirisEkrani.resx">
       <DependentUpon>GirisEkrani.vb</DependentUpon>
@@ -232,11 +266,23 @@
     <EmbeddedResource Include="KullaniciArsaListesi.resx">
       <DependentUpon>KullaniciArsaListesi.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KullaniciGirisForm.resx">
+      <DependentUpon>KullaniciGirisForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KullaniciIsyeriListesi.resx">
       <DependentUpon>KullaniciIsyeriListesi.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KullaniciKayit.resx">
+      <DependentUpon>KullaniciKayit.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KullaniciKonutListesi.resx">
       <DependentUpon>KullaniciKonutListesi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusteriKisiselBilgi.resx">
+      <DependentUpon>MusteriKisiselBilgi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusteriYonetim.resx">
+      <DependentUpon>MusteriYonetim.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -256,6 +302,27 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\land-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\land-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\land.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove background project.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove background project %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop-icon-rmbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house-icon-rmbg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

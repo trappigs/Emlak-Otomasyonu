@@ -65,7 +65,13 @@ Public Class AlSatKirala
                     ElseIf konutRadioButton.Checked Then
                         emlakTuru = "konut"
                     End If
-                    Dim donus As Boolean = sqlAlSatKira.Satis(aliciComboBox, saticiComboBox, emlakciComboBox, emlakTuru, satis_ucreti.Text, 0, 0, selectedRow.Cells(0).Value.ToString())
+                    Dim donus As Boolean
+                    If aliciComboBox.SelectedValue IsNot Nothing AndAlso saticiComboBox.SelectedValue IsNot Nothing Then
+                        donus = sqlAlSatKira.Satis(aliciComboBox, saticiComboBox, emlakciComboBox, emlakTuru, satis_ucreti.Text, 0, 0, selectedRow.Cells(0).Value.ToString())
+                    Else
+                        Exit Sub
+                    End If
+
                     If donus Then
                         DataGridView1.Rows.RemoveAt(selectedRow.Index)
                     End If
@@ -103,8 +109,8 @@ Public Class AlSatKirala
     End Sub
 
 
-    Function KisiSorgula(tablo_adi As String, emlak_tipi_id As String) As DataTable
-        Dim queryAlSat As String = "select * from " + tablo_adi + ", adres where adres.kisi_tc = " + tablo_adi + ".emlak_sahibi_tc and " + tablo_adi + "." + emlak_tipi_id + " = adres." + emlak_tipi_id + " and aktiflik = 1"
+    Function KisiSorgula(tablo_adi As String, emlak_tipi_id As String, satici_tc As String) As DataTable
+        Dim queryAlSat As String = "select * from " + tablo_adi + ", adres where " + tablo_adi + ".emlak_sahibi_tc = '" + satici_tc + "' and adres.kisi_tc = " + tablo_adi + ".emlak_sahibi_tc and " + tablo_adi + "." + emlak_tipi_id + " = adres." + emlak_tipi_id + " and aktiflik = 1"
 
         Dim dtKisi As New DataTable()
         Using connection As New SqlConnection(connectionString)
@@ -134,10 +140,9 @@ Public Class AlSatKirala
 
     Private Sub isyeriRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles isyeriRadioButton.CheckedChanged
         Try
-
             DataGridView1.DataSource = Nothing
             If isyeriRadioButton.Checked Then
-                DataGridView1.DataSource = KisiSorgula("isyeri", "isyeri_id")
+                DataGridView1.DataSource = KisiSorgula("isyeri", "isyeri_id", saticiComboBox.SelectedValue.ToString())
                 If DataGridView1.Columns("isyeri_id1") IsNot Nothing Then
                     DataGridView1.Columns("isyeri_id1").Visible = False
                     DataGridView1.Columns("arsa_id").Visible = False
@@ -161,7 +166,12 @@ Public Class AlSatKirala
         Try
             DataGridView1.DataSource = Nothing
             If arsaRadioButton.Checked Then
-                DataGridView1.DataSource = KisiSorgula("arsa", "arsa_id")
+                If saticiComboBox.SelectedValue IsNot Nothing Then
+                    DataGridView1.DataSource = KisiSorgula("arsa", "arsa_id", saticiComboBox.SelectedValue.ToString())
+                Else
+                    MessageBox.Show("Satıcı seçiniz!")
+                    Exit Sub
+                End If
                 If DataGridView1.Columns("arsa_id1") IsNot Nothing Then
                     DataGridView1.Columns("arsa_id1").Visible = False
                     DataGridView1.Columns("isyeri_id").Visible = False
@@ -186,7 +196,12 @@ Public Class AlSatKirala
         Try
             If konutRadioButton.Checked Then
                 DataGridView1.DataSource = Nothing
-                DataGridView1.DataSource = KisiSorgula("konutlar", "konut_id")
+                If saticiComboBox.SelectedValue IsNot Nothing Then
+                    DataGridView1.DataSource = KisiSorgula("konutlar", "konut_id", saticiComboBox.SelectedValue.ToString())
+                Else
+                    MessageBox.Show("Satıcı seçiniz!")
+                    Exit Sub
+                End If
                 If DataGridView1.Columns("konut_id1") IsNot Nothing Then
                     DataGridView1.Columns("konut_id1").Visible = False
                     DataGridView1.Columns("arsa_id").Visible = False

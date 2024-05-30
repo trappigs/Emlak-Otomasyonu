@@ -13,7 +13,7 @@ Public Class KonutEkle
 
     Dim lastAddressId As Integer
     Function KonutEkle(form As Form, componentsForKonut() As Control, componentsForAdres() As Control) As Boolean
-        Dim queryKonutString As String = "INSERT INTO konutlar (bina_yapim_yili, oda_sayisi, bulundugu_kat, bina_kat_sayisi, isitma, banyo_sayisi, balkon_sayisi, asansor_var_mi, otopark, esyali_mi, aidat_ucret, aciklama, alan, emlak_sahibi_tc, cephe) VALUES (@bina_yapim_yili, @oda_sayisi, @bulundugu_kat, @bina_kat_sayisi, @isitma, @banyo_sayisi, @balkon_sayisi, @asansor_var_mi, @otopark, @esyali_mi, @aidat_ucret, @aciklama, @alan, @emlak_sahibi_tc, @cephe);" & "SELECT SCOPE_IDENTITY()"
+        Dim queryKonutString As String = "INSERT INTO konutlar (bina_yapim_yili, oda_sayisi, bulundugu_kat, bina_kat_sayisi, isitma, banyo_sayisi, balkon_sayisi, asansor_var_mi, otopark, esyali_mi, aidat_ucret, aciklama, alan, emlak_sahibi_tc, cephe, aktiflik) VALUES (@bina_yapim_yili, @oda_sayisi, @bulundugu_kat, @bina_kat_sayisi, @isitma, @banyo_sayisi, @balkon_sayisi, @asansor_var_mi, @otopark, @esyali_mi, @aidat_ucret, @aciklama, @alan, @emlak_sahibi_tc, @cephe, 1);" & "SELECT SCOPE_IDENTITY()"
         Dim queryAdresString As String = "INSERT INTO adres (il_adi, ilce_adi, mahalle_adi, sokak_adi, bina_no, daire_no, acik_adres, kisi_tc, konut_id) VALUES (@il, @ilce, @mahalle, @sokak, @bina, @daire, @acikAdres, @kisi_tc, @konut_id)"
 
 

@@ -19,7 +19,7 @@ Public Class isyeriEkle
 
 
     Function IsyeriEkle(form As Form, componentsForArsa() As Control, componentsForAdres() As Control) As Boolean
-        Dim queryIsyeriString As String = "INSERT INTO isyeri (isyeri_tur, bolum_sayisi, aidat_ucret, isitma, yapim_yili, alan, aciklama, emlak_sahibi_tc) VALUES (@isyeri_tur, @bolum_sayisi, @aidat_ucret, @isitma, @yapim_yili, @alan, @aciklama, @emlak_sahibi_tc);" & "SELECT SCOPE_IDENTITY()"
+        Dim queryIsyeriString As String = "INSERT INTO isyeri (isyeri_tur, bolum_sayisi, aidat_ucret, isitma, yapim_yili, alan, aciklama, emlak_sahibi_tc, aktiflik) VALUES (@isyeri_tur, @bolum_sayisi, @aidat_ucret, @isitma, @yapim_yili, @alan, @aciklama, @emlak_sahibi_tc, 1);" & "SELECT SCOPE_IDENTITY()"
         Dim queryAdresString As String = "INSERT INTO adres (il_adi, ilce_adi, mahalle_adi, sokak_adi, bina_no, daire_no, acik_adres, kisi_tc, isyeri_id) VALUES (@il, @ilce, @mahalle, @sokak, @bina, @daire, @acikAdres, @kisi_tc, @isyeri_id)"
 
 

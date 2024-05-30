@@ -59,7 +59,7 @@ Partial Class KisiEkle
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(158, 89)
+        Me.Label1.Location = New System.Drawing.Point(154, 104)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(25, 16)
         Me.Label1.TabIndex = 0
@@ -67,7 +67,7 @@ Partial Class KisiEkle
         '
         'tcTextBox
         '
-        Me.tcTextBox.Location = New System.Drawing.Point(158, 108)
+        Me.tcTextBox.Location = New System.Drawing.Point(154, 123)
         Me.tcTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tcTextBox.Name = "tcTextBox"
         Me.tcTextBox.Size = New System.Drawing.Size(125, 22)
@@ -75,7 +75,7 @@ Partial Class KisiEkle
         '
         'adTextBox
         '
-        Me.adTextBox.Location = New System.Drawing.Point(158, 158)
+        Me.adTextBox.Location = New System.Drawing.Point(154, 173)
         Me.adTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.adTextBox.Name = "adTextBox"
         Me.adTextBox.Size = New System.Drawing.Size(125, 22)
@@ -84,7 +84,7 @@ Partial Class KisiEkle
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(158, 140)
+        Me.Label2.Location = New System.Drawing.Point(154, 155)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(24, 16)
         Me.Label2.TabIndex = 2
@@ -92,7 +92,7 @@ Partial Class KisiEkle
         '
         'soyadTextBox
         '
-        Me.soyadTextBox.Location = New System.Drawing.Point(158, 212)
+        Me.soyadTextBox.Location = New System.Drawing.Point(154, 227)
         Me.soyadTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.soyadTextBox.Name = "soyadTextBox"
         Me.soyadTextBox.Size = New System.Drawing.Size(125, 22)
@@ -101,7 +101,7 @@ Partial Class KisiEkle
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(158, 193)
+        Me.Label3.Location = New System.Drawing.Point(154, 208)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 16)
         Me.Label3.TabIndex = 4
@@ -109,7 +109,7 @@ Partial Class KisiEkle
         '
         'telTextBox
         '
-        Me.telTextBox.Location = New System.Drawing.Point(158, 268)
+        Me.telTextBox.Location = New System.Drawing.Point(154, 283)
         Me.telTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.telTextBox.Name = "telTextBox"
         Me.telTextBox.Size = New System.Drawing.Size(125, 22)
@@ -118,7 +118,7 @@ Partial Class KisiEkle
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(158, 249)
+        Me.Label4.Location = New System.Drawing.Point(154, 264)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 16)
         Me.Label4.TabIndex = 6
@@ -126,7 +126,7 @@ Partial Class KisiEkle
         '
         'emailTextBox
         '
-        Me.emailTextBox.Location = New System.Drawing.Point(158, 323)
+        Me.emailTextBox.Location = New System.Drawing.Point(154, 338)
         Me.emailTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.emailTextBox.Name = "emailTextBox"
         Me.emailTextBox.Size = New System.Drawing.Size(125, 22)
@@ -135,7 +135,7 @@ Partial Class KisiEkle
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(158, 305)
+        Me.Label5.Location = New System.Drawing.Point(154, 320)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(41, 16)
         Me.Label5.TabIndex = 8
@@ -144,10 +144,10 @@ Partial Class KisiEkle
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(146, 394)
+        Me.RadioButton1.Location = New System.Drawing.Point(142, 409)
         Me.RadioButton1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(60, 20)
+        Me.RadioButton1.Size = New System.Drawing.Size(63, 20)
         Me.RadioButton1.TabIndex = 10
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Erkek"
@@ -156,10 +156,10 @@ Partial Class KisiEkle
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(230, 394)
+        Me.RadioButton2.Location = New System.Drawing.Point(226, 409)
         Me.RadioButton2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(59, 20)
+        Me.RadioButton2.Size = New System.Drawing.Size(62, 20)
         Me.RadioButton2.TabIndex = 11
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "Kadın"
@@ -168,7 +168,7 @@ Partial Class KisiEkle
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(190, 369)
+        Me.Label6.Location = New System.Drawing.Point(186, 384)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(54, 16)
         Me.Label6.TabIndex = 12
@@ -176,7 +176,7 @@ Partial Class KisiEkle
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(146, 451)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(142, 466)
         Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(137, 22)
@@ -185,7 +185,7 @@ Partial Class KisiEkle
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(176, 428)
+        Me.Label7.Location = New System.Drawing.Point(172, 443)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(88, 16)
         Me.Label7.TabIndex = 14
@@ -195,7 +195,7 @@ Partial Class KisiEkle
         '
         Me.ilceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ilceComboBox.FormattingEnabled = True
-        Me.ilceComboBox.Location = New System.Drawing.Point(344, 158)
+        Me.ilceComboBox.Location = New System.Drawing.Point(340, 173)
         Me.ilceComboBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ilceComboBox.Name = "ilceComboBox"
         Me.ilceComboBox.Size = New System.Drawing.Size(83, 24)
@@ -204,7 +204,7 @@ Partial Class KisiEkle
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(344, 140)
+        Me.Label8.Location = New System.Drawing.Point(340, 155)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(28, 16)
         Me.Label8.TabIndex = 16
@@ -213,7 +213,7 @@ Partial Class KisiEkle
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(344, 193)
+        Me.Label9.Location = New System.Drawing.Point(340, 208)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(55, 16)
         Me.Label9.TabIndex = 18
@@ -223,7 +223,7 @@ Partial Class KisiEkle
         '
         Me.mahalleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.mahalleComboBox.FormattingEnabled = True
-        Me.mahalleComboBox.Location = New System.Drawing.Point(344, 211)
+        Me.mahalleComboBox.Location = New System.Drawing.Point(340, 226)
         Me.mahalleComboBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.mahalleComboBox.Name = "mahalleComboBox"
         Me.mahalleComboBox.Size = New System.Drawing.Size(83, 24)
@@ -232,7 +232,7 @@ Partial Class KisiEkle
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(344, 249)
+        Me.Label10.Location = New System.Drawing.Point(340, 264)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(69, 16)
         Me.Label10.TabIndex = 20
@@ -240,7 +240,7 @@ Partial Class KisiEkle
         '
         'binaNoTextBox
         '
-        Me.binaNoTextBox.Location = New System.Drawing.Point(344, 323)
+        Me.binaNoTextBox.Location = New System.Drawing.Point(340, 338)
         Me.binaNoTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.binaNoTextBox.Name = "binaNoTextBox"
         Me.binaNoTextBox.Size = New System.Drawing.Size(83, 22)
@@ -249,7 +249,7 @@ Partial Class KisiEkle
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(344, 305)
+        Me.Label11.Location = New System.Drawing.Point(340, 320)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(52, 16)
         Me.Label11.TabIndex = 21
@@ -258,7 +258,7 @@ Partial Class KisiEkle
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(344, 89)
+        Me.Label12.Location = New System.Drawing.Point(340, 104)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(13, 16)
         Me.Label12.TabIndex = 23
@@ -266,7 +266,7 @@ Partial Class KisiEkle
         '
         'daireNoTextBox
         '
-        Me.daireNoTextBox.Location = New System.Drawing.Point(344, 380)
+        Me.daireNoTextBox.Location = New System.Drawing.Point(340, 395)
         Me.daireNoTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.daireNoTextBox.Name = "daireNoTextBox"
         Me.daireNoTextBox.Size = New System.Drawing.Size(83, 22)
@@ -275,7 +275,7 @@ Partial Class KisiEkle
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(344, 361)
+        Me.Label13.Location = New System.Drawing.Point(340, 376)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(58, 16)
         Me.Label13.TabIndex = 25
@@ -283,7 +283,7 @@ Partial Class KisiEkle
         '
         'acikAdresTextBox
         '
-        Me.acikAdresTextBox.Location = New System.Drawing.Point(493, 108)
+        Me.acikAdresTextBox.Location = New System.Drawing.Point(489, 123)
         Me.acikAdresTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.acikAdresTextBox.Multiline = True
         Me.acikAdresTextBox.Name = "acikAdresTextBox"
@@ -293,7 +293,7 @@ Partial Class KisiEkle
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(493, 89)
+        Me.Label14.Location = New System.Drawing.Point(489, 104)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(72, 16)
         Me.Label14.TabIndex = 27
@@ -301,7 +301,7 @@ Partial Class KisiEkle
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(576, 389)
+        Me.Button1.Location = New System.Drawing.Point(572, 404)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(104, 55)
@@ -313,7 +313,7 @@ Partial Class KisiEkle
         '
         Me.ilComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ilComboBox.FormattingEnabled = True
-        Me.ilComboBox.Location = New System.Drawing.Point(344, 108)
+        Me.ilComboBox.Location = New System.Drawing.Point(340, 123)
         Me.ilComboBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ilComboBox.Name = "ilComboBox"
         Me.ilComboBox.Size = New System.Drawing.Size(83, 24)
@@ -321,7 +321,7 @@ Partial Class KisiEkle
         '
         'sokakTextBox
         '
-        Me.sokakTextBox.Location = New System.Drawing.Point(344, 268)
+        Me.sokakTextBox.Location = New System.Drawing.Point(340, 283)
         Me.sokakTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.sokakTextBox.Name = "sokakTextBox"
         Me.sokakTextBox.Size = New System.Drawing.Size(83, 22)
@@ -332,7 +332,7 @@ Partial Class KisiEkle
         Me.kisiTipiComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.kisiTipiComboBox.FormattingEnabled = True
         Me.kisiTipiComboBox.Items.AddRange(New Object() {"Müşteri", "Emlakçı"})
-        Me.kisiTipiComboBox.Location = New System.Drawing.Point(344, 440)
+        Me.kisiTipiComboBox.Location = New System.Drawing.Point(340, 455)
         Me.kisiTipiComboBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.kisiTipiComboBox.Name = "kisiTipiComboBox"
         Me.kisiTipiComboBox.Size = New System.Drawing.Size(83, 24)
@@ -341,7 +341,7 @@ Partial Class KisiEkle
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(344, 421)
+        Me.Label15.Location = New System.Drawing.Point(340, 436)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(54, 16)
         Me.Label15.TabIndex = 35
