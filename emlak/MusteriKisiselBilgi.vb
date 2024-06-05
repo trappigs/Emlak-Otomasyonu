@@ -73,7 +73,7 @@ Public Class MusteriKisiselBilgi
     End Sub
 
 
-    Dim connectionString As String = "Data Source=BU2-C-000WY\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
+    Dim connectionString As String = "Data Source=DESKTOP-J5GMTR7\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;"
     Dim connection As New SqlConnection(connectionString)
 
     Public Sub kisiselBilgiGuncelleme(kayitComps As List(Of Control), adresComps As List(Of Control))

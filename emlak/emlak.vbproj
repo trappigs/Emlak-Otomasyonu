@@ -109,10 +109,22 @@
     <Compile Include="EmlakciGirisForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GirisEkrani.Designer.vb">
       <DependentUpon>GirisEkrani.vb</DependentUpon>
     </Compile>
     <Compile Include="GirisEkrani.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ilanEkleme.Designer.vb">
+      <DependentUpon>ilanEkleme.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ilanEkleme.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="KisiEkle.designer.vb">
@@ -238,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmlakciGirisForm.resx">
       <DependentUpon>EmlakciGirisForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GirisEkrani.resx">
       <DependentUpon>GirisEkrani.vb</DependentUpon>

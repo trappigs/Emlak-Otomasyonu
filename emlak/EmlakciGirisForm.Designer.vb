@@ -32,9 +32,12 @@ Partial Class EmlakciGirisForm
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(52, 214)
+        Me.Button2.Font = New System.Drawing.Font("Nirmala UI", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Button2.Location = New System.Drawing.Point(39, 201)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 62)
+        Me.Button2.Size = New System.Drawing.Size(56, 50)
         Me.Button2.TabIndex = 11
         Me.Button2.Text = "Ana Girişe Dön"
         Me.Button2.UseVisualStyleBackColor = True
@@ -42,55 +45,70 @@ Partial Class EmlakciGirisForm
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(40, 96)
+        Me.Label2.Font = New System.Drawing.Font("Nirmala UI", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(26, 88)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(34, 16)
+        Me.Label2.Size = New System.Drawing.Size(42, 19)
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Şifre"
         '
         'sifreTextBox
         '
-        Me.sifreTextBox.Location = New System.Drawing.Point(40, 118)
+        Me.sifreTextBox.Font = New System.Drawing.Font("Nirmala UI", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.sifreTextBox.Location = New System.Drawing.Point(30, 109)
+        Me.sifreTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.sifreTextBox.Name = "sifreTextBox"
-        Me.sifreTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.sifreTextBox.Size = New System.Drawing.Size(76, 26)
         Me.sifreTextBox.TabIndex = 9
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(40, 38)
+        Me.Label1.Font = New System.Drawing.Font("Nirmala UI", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(26, 28)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(25, 16)
+        Me.Label1.Size = New System.Drawing.Size(25, 19)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "TC"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(52, 169)
+        Me.Button1.Font = New System.Drawing.Font("Nirmala UI", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Button1.Location = New System.Drawing.Point(39, 159)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(56, 28)
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "Giriş Yap"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'tcTextBox
         '
-        Me.tcTextBox.Location = New System.Drawing.Point(40, 60)
+        Me.tcTextBox.Font = New System.Drawing.Font("Nirmala UI", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.tcTextBox.Location = New System.Drawing.Point(30, 49)
+        Me.tcTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.tcTextBox.Name = "tcTextBox"
-        Me.tcTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.tcTextBox.Size = New System.Drawing.Size(76, 26)
         Me.tcTextBox.TabIndex = 6
         '
         'EmlakciGirisForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(194, 322)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(73, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(146, 262)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.sifreTextBox)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.tcTextBox)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "EmlakciGirisForm"
         Me.Text = "EmlakciGirisForm"
         Me.ResumeLayout(False)

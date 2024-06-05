@@ -2,7 +2,7 @@
 Imports System.Data.SqlClient
 
 Public Class sqlAlSatKira
-    Public Shared connectionString As String = "Data Source=BU2-C-000WY\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
+    Public Shared connectionString As String = "Data Source=DESKTOP-J5GMTR7\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;"
 
     Public Shared Sub Kiralama(alanTc As ComboBox, satanTc As ComboBox, emlakciTc As ComboBox, emlakTuru As String, kiraUcreti As String, depozitoUcreti As String, id As String)
         Dim sorgu As String = "INSERT INTO alim_satim_kiralama (alan_musteri_tc, satan_musteri_tc, emlakci_tc, yapilan_islem, kira_ucreti, depozito_ucreti, "

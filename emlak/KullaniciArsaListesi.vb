@@ -27,7 +27,7 @@ Public Class KullaniciArsaListesi
         emlak_sahibi_tc.Text = ""
     End Sub
 
-    Dim connectionString As String = "Data Source=BU2-C-000WY\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
+    Dim connectionString As String = "Data Source=DESKTOP-J5GMTR7\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;"
     Dim connection As New SqlConnection(connectionString)
 
     Sub veriDoldur(query As String, adSutun As String, idSutun As String, tabloAdi As String, ByVal comboBox As ComboBox)
@@ -356,5 +356,9 @@ Public Class KullaniciArsaListesi
 
     Private Sub ilce_adi_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ilce_adi.SelectedIndexChanged
         veriDoldur("select mahalle_adi, mahalle_id from mahalle where ilce_id =" + ilce_adi.SelectedValue.ToString(), "mahalle_adi", "mahalle_id", "mahalle", mahalle_adi)
+    End Sub
+
+    Private Sub tapu_durumu_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tapu_durumu.SelectedIndexChanged
+
     End Sub
 End Class

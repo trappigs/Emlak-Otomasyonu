@@ -2,9 +2,9 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim giris As Boolean = sqlAuth.GirisYapma(tcTextBox.Text, sifreTextBox.Text, "Emlakçı")
         If giris Then
-            Dim emlakciAnaEkran As New GirisEkrani()
+            Dim emlakciAnaEkran As New Form1()
             emlakciAnaEkran.Show()
-            Me.Close()
+            Me.Hide()
         End If
     End Sub
 

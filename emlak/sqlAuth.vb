@@ -23,7 +23,7 @@ Public Class sqlAuth
         End Using
     End Sub
 
-    Shared connectionString As String = "Data Source=BU2-C-000WY\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
+    Shared connectionString As String = "Data Source=DESKTOP-J5GMTR7\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;"
     Shared connection As New SqlConnection(connectionString)
     Public Shared kisiTc As String
     Public Shared kayitBasari As Boolean = False

@@ -203,7 +203,7 @@ Public Class isyeriListesi
 
     End Sub
 
-    Dim connectionString As String = "Data Source=BU2-C-000WY\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
+    Dim connectionString As String = "Data Source=DESKTOP-J5GMTR7\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;"
     Dim connection As New SqlConnection(connectionString)
 
     Function isyeriSorgula(form As Form, componentsForArsa As List(Of Control), componentsForAdres() As Control) As DataTable
@@ -238,7 +238,7 @@ Public Class isyeriListesi
 
             If TypeOf ctrl Is ComboBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, ComboBox).Text) Then
                 Dim cmbBox As ComboBox = DirectCast(ctrl, ComboBox)
-                queryBirlesikString &= "AND isyeri." & cmbBox.Name & " = N'" & cmbBox.Text & "' "
+                queryBirlesikString &= "AND isyeri." & cmbBox.Name & " = N'%" & cmbBox.Text & "%' "
             End If
         Next
 
@@ -247,12 +247,12 @@ Public Class isyeriListesi
             If TypeOf ctrl Is TextBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, TextBox).Text) Then
                 Dim txtBox As TextBox = DirectCast(ctrl, TextBox)
 
-                queryBirlesikString &= "AND adres." & txtBox.Name & " LIKE N'" & txtBox.Text & "' "
+                queryBirlesikString &= "AND adres." & txtBox.Name & " LIKE N'%" & txtBox.Text & "%' "
             End If
 
             If TypeOf ctrl Is ComboBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, ComboBox).Text) Then
                 Dim cmbBox As ComboBox = DirectCast(ctrl, ComboBox)
-                queryBirlesikString &= "AND adres." & cmbBox.Name & " LIKE N'" & cmbBox.Text & "' "
+                queryBirlesikString &= "AND adres." & cmbBox.Name & " LIKE N'%" & cmbBox.Text & "%' "
             End If
         Next
 
@@ -273,6 +273,8 @@ Public Class isyeriListesi
                 MessageBox.Show(ex.Message)
             End Try
         End Using
+
+        'MessageBox.Show(queryBirlesikString)
 
         If dtIsyeriVeAdres.Rows.Count > 0 Then
             Return dtIsyeriVeAdres
@@ -324,12 +326,12 @@ Public Class isyeriListesi
             If TypeOf ctrl Is TextBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, TextBox).Text) Then
                 Dim txtBox As TextBox = DirectCast(ctrl, TextBox)
 
-                queryBirlesikString &= "AND adres." & txtBox.Name & " LIKE N'" & txtBox.Text & "' "
+                queryBirlesikString &= "AND adres." & txtBox.Name & " LIKE N'%" & txtBox.Text & "%' "
             End If
 
             If TypeOf ctrl Is ComboBox AndAlso Not String.IsNullOrEmpty(DirectCast(ctrl, ComboBox).Text) Then
                 Dim cmbBox As ComboBox = DirectCast(ctrl, ComboBox)
-                queryBirlesikString &= "AND adres." & cmbBox.Name & " LIKE N'" & cmbBox.Text & "' "
+                queryBirlesikString &= "AND adres." & cmbBox.Name & " LIKE N'%" & cmbBox.Text & "%' "
             End If
         Next
 

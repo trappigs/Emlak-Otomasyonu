@@ -1,7 +1,4 @@
 ﻿Public Class Form1
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 
     Sub FormGetir(frm As Form)
         Panel2.Controls.Clear()
@@ -16,7 +13,7 @@
         FormGetir(ekle)
     End Sub
 
-    Private Sub musteriEkleBtn_Click(sender As Object, e As EventArgs) 
+    Private Sub musteriEkleBtn_Click(sender As Object, e As EventArgs)
         Dim ekle As New KisiEkle()
         FormGetir(ekle)
     End Sub
@@ -61,11 +58,8 @@
         FormGetir(ekle)
     End Sub
 
-    Private Sub genelAramaBtn_Click(sender As Object, e As EventArgs) 
+    Private Sub genelAramaBtn_Click(sender As Object, e As EventArgs)
         ' genel arama formu getirilsin
     End Sub
 
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
-
-    End Sub
 End Class

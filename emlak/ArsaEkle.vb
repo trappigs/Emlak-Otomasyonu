@@ -12,7 +12,7 @@ Public Class ArsaEkle
 
 
 
-    Dim connectionString As String = "Data Source=BU2-C-000WY\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
+    Dim connectionString As String = "Data Source=DESKTOP-J5GMTR7\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;"
     Dim lastAddressId As Integer
 
     Function ArsaEkle(form As Form, componentsForArsa() As Control, componentsForAdres() As Control) As Boolean
@@ -115,7 +115,7 @@ Public Class ArsaEkle
 
     Private imagePaths As New List(Of String)()
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         Using openFileDialog As New OpenFileDialog()
             openFileDialog.Multiselect = True
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png, *.gif) | *.jpg; *.jpeg; *.png; *.gif"
@@ -130,7 +130,7 @@ Public Class ArsaEkle
         End Using
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
 
         If imagePaths.Count > 0 Then
             Using connection As New SqlConnection(connectionString)

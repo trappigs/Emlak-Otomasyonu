@@ -9,8 +9,8 @@ Public Class KullaniciGirisForm
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim giris As Boolean = sqlAuth.GirisYapma(tcTextBox.Text, sifreTextBox.Text, "Müşteri")
         If giris Then
-            Dim emlakciAnaEkran As New GirisEkrani()
-            emlakciAnaEkran.Show()
+            Dim musteriGirisEkrani As New MusteriYonetim()
+            musteriGirisEkrani.Show()
             Me.Close()
         End If
     End Sub

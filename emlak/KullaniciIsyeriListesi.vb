@@ -199,7 +199,7 @@ Public Class KullaniciIsyeriListesi
         emlak_sahibi_tc.Text = ""
     End Sub
 
-    Dim connectionString As String = "Data Source=BU2-C-000WY\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
+    Dim connectionString As String = "Data Source=DESKTOP-J5GMTR7\SQLEXPRESS;Initial Catalog=emlakSon;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;"
     Dim connection As New SqlConnection(connectionString)
 
     Function isyeriSorgula(form As Form, componentsForArsa As List(Of Control), componentsForAdres() As Control, kisi_tc As String) As DataTable
@@ -315,6 +315,7 @@ Public Class KullaniciIsyeriListesi
 
     End Sub
 
+    Private Sub Label13_Click(sender As Object, e As EventArgs) Handles Label13.Click
 
-
+    End Sub
 End Class
